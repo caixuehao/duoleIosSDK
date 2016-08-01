@@ -46,7 +46,7 @@ duoleLoginVC* duoleIosSDKloginVC;
 
 +(void)showWithMode:(LoginMode)mode success:(void(^)(NSDictionary* dic))block{
     NSLog(@"登陆2.0  1.0.0");
-    
+    NSLog(@"asdadasd");
     if (duoleIosSDKloginVC == NULL) {
         duoleIosSDKloginVC = [[duoleLoginVC alloc] initWithMode:mode];
         duoleIosSDKloginVC.loginSuccessBlock = block;
