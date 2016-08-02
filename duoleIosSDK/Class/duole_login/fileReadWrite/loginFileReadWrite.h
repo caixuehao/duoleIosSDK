@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//====================================================
-#define Duole_IOSSDK_Catalog @"duoleIosSdk"//用户信息文件夹名字
-#define Duole_IOSSDK_USERINFO_PATH  @"duoleIosSdk/userinfo.plist" //用户信息存取地址
-//====================================================
 
 @interface loginFileReadWrite : NSObject
 

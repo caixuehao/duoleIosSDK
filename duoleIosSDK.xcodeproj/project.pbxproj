@@ -63,6 +63,8 @@
 		FCCA4C8C1D4F4B8900E8ACE8 /* moreFunctionFileRW.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCA4C8A1D4F4B8900E8ACE8 /* moreFunctionFileRW.m */; };
 		FCCA4C911D503CD600E8ACE8 /* FateLoginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCA4C8F1D503CD600E8ACE8 /* FateLoginRequest.h */; };
 		FCCA4C921D503CD600E8ACE8 /* FateLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCA4C901D503CD600E8ACE8 /* FateLoginRequest.m */; };
+		FCDBC0DF1D50785C007CA845 /* localNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDBC0DD1D50785C007CA845 /* localNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCDBC0E01D50785C007CA845 /* localNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDBC0DE1D50785C007CA845 /* localNotification.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		FCCA4C8A1D4F4B8900E8ACE8 /* moreFunctionFileRW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moreFunctionFileRW.m; sourceTree = "<group>"; };
 		FCCA4C8F1D503CD600E8ACE8 /* FateLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FateLoginRequest.h; sourceTree = "<group>"; };
 		FCCA4C901D503CD600E8ACE8 /* FateLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FateLoginRequest.m; sourceTree = "<group>"; };
+		FCDBC0DD1D50785C007CA845 /* localNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = localNotification.h; path = duoleIosSDK/Class/localNotification/localNotification.h; sourceTree = SOURCE_ROOT; };
+		FCDBC0DE1D50785C007CA845 /* localNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = localNotification.m; path = duoleIosSDK/Class/localNotification/localNotification.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +261,7 @@
 			children = (
 				FC4705811D4713E2009F0B62 /* Macro */,
 				FC4705CB1D47379A009F0B62 /* duole_login */,
+				FCDBC0DB1D50772E007CA845 /* localNotification */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -355,6 +360,16 @@
 			path = CAIanimations;
 			sourceTree = "<group>";
 		};
+		FCDBC0DB1D50772E007CA845 /* localNotification */ = {
+			isa = PBXGroup;
+			children = (
+				FCDBC0DD1D50785C007CA845 /* localNotification.h */,
+				FCDBC0DE1D50785C007CA845 /* localNotification.m */,
+			);
+			name = localNotification;
+			path = Macro;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -364,6 +379,7 @@
 			files = (
 				FC2DF8381D4EED2B005160BD /* MASViewAttribute.h in Headers */,
 				FC2DF8321D4EED2B005160BD /* MASConstraintMaker.h in Headers */,
+				FCDBC0DF1D50785C007CA845 /* localNotification.h in Headers */,
 				FC4705D21D47379A009F0B62 /* duoleLoginVC.h in Headers */,
 				FC2DF8431D4EED2B005160BD /* View+MASShorthandAdditions.h in Headers */,
 				FC2DF83A1D4EED2B005160BD /* MASViewConstraint.h in Headers */,
@@ -491,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCDBC0E01D50785C007CA845 /* localNotification.m in Sources */,
 				FC2DF8421D4EED2B005160BD /* View+MASAdditions.m in Sources */,
 				FC4705DC1D473B7D009F0B62 /* KeychainItemWrapper.m in Sources */,
 				FC2DF7E81D489868005160BD /* GameLoginRequest.m in Sources */,

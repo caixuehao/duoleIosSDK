@@ -10,6 +10,17 @@
 #define Macro_h
 #import <AdSupport/ASIdentifierManager.h>
 
+#define Duole_IOSSDK_Catalog @"duoleIosSdk"//用户信息文件夹名字
+#define Duole_IOSSDK_USERINFO_PATH  @"duoleIosSdk/userinfo.plist" //用户信息存取地址
+#define Duole_IOSSDK_localNotification_PATH  @"duoleIosSdk/localNotification.plist" //本地推送存取地址
+
+
+
+
+
+
+
+
 #define SSize   [UIScreen mainScreen].bounds.size
 
 

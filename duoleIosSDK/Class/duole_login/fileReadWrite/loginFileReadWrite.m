@@ -9,7 +9,7 @@
 #import "loginFileReadWrite.h"
 #import <AdSupport/ASIdentifierManager.h>
 #import "KeychainItemWrapper.h"
-
+#import "Macro.h"
 
 @implementation loginFileReadWrite{
     NSMutableDictionary* Text_Dic;
