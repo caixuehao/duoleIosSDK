@@ -17,6 +17,9 @@
 #import "JCAlertView.h"
 #import "MBProgressHUD.h"
 
+#import "moreFunctionVC.h"
+
+
 #define isIos7System [[[UIDevice currentDevice] systemVersion] floatValue] <= 7.0
 duoleLoginVC* duoleIosSDKloginVC;
 
@@ -33,7 +36,7 @@ duoleLoginVC* duoleIosSDKloginVC;
     
     NSInteger SecondMainViewSubviewType;//第二主视图的
     UIImageView* bgimageView;
-    UIButton* backbtn;
+    UIButton* moreFunction_btn;
     
     UIView* mainViewBg;
     UIView* MainView;//主视图（刚显示时的）
@@ -46,14 +49,16 @@ duoleLoginVC* duoleIosSDKloginVC;
 
 +(void)showWithMode:(LoginMode)mode success:(void(^)(NSDictionary* dic))block{
     NSLog(@"登陆2.0  1.0.0");
-    NSLog(@"asdadasd");
     if (duoleIosSDKloginVC == NULL) {
         duoleIosSDKloginVC = [[duoleLoginVC alloc] initWithMode:mode];
         duoleIosSDKloginVC.loginSuccessBlock = block;
+        
+        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:duoleIosSDKloginVC];
+        nav.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
         UIViewController* rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
         rootVC.modalPresentationStyle = UIModalPresentationCurrentContext;
-        [rootVC presentViewController:duoleIosSDKloginVC animated:YES completion:^{}];
-
+        [rootVC presentViewController:nav animated:YES completion:^{}];
     }
 }
 
@@ -61,7 +66,6 @@ duoleLoginVC* duoleIosSDKloginVC;
     self = [super init];
     if (self) {
         self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         _loginFileData = [loginFileReadWrite share];
         _loginRequest = [[loginRequest alloc] initWithLoginMode:mode];
         _loginRequest.delegate = self;
@@ -77,6 +81,7 @@ duoleLoginVC* duoleIosSDKloginVC;
 #pragma UIViewControllerDelegate
 
 -(void)viewWillAppear:(BOOL)animated{
+     self.navigationController.navigationBar.hidden = YES;
 }
 
 -(void)viewDidDisappear {
@@ -135,7 +140,7 @@ duoleLoginVC* duoleIosSDKloginVC;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
     [CAIanimations animateOut:mainViewBg BgRect:mainViewBg.bounds];
-    NSLog(@"321");
+    
     [UIView animateWithDuration:2.0 animations:^{
         if(bgimageView.image){
             [bgimageView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -146,7 +151,6 @@ duoleLoginVC* duoleIosSDKloginVC;
         }
          self.view.backgroundColor = ColorRGBA(0, 0, 0, 0);
     } completion:^(BOOL finished) {
-        NSLog(@"123");
         [self dismissViewControllerAnimated:NO completion:nil];
         duoleIosSDKloginVC = nil;
         [motionManager stopGyroUpdates];
@@ -220,9 +224,18 @@ duoleLoginVC* duoleIosSDKloginVC;
 
 
 #pragma mark - btnAction
-//退出按钮
--(void)backLoginVC{
-    [self back];
+//更多功能
+-(void)moreFunction{
+    CATransition *transition = [CATransition animation];
+    transition.duration = 1.0f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = @"pageUnCurl";
+    transition.subtype = kCATransitionFromRight;
+    transition.delegate = self;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    
+    moreFunctionVC* vc =[[moreFunctionVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //退出第二界面
@@ -552,12 +565,6 @@ duoleLoginVC* duoleIosSDKloginVC;
 //    bgimageView.image = [self snapshot:[UIApplication sharedApplication].keyWindow.rootViewController.view];
     [self.view addSubview:bgimageView];
     
-//    backbtn = [[UIButton alloc] init];
-//    [backbtn setTitle:@"返回" forState:UIControlStateNormal];
-//    [backbtn addTarget:self action:@selector(backLoginVC) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:backbtn];
-    
-   
     mainViewBg = [[UIView alloc] init];
     [self.view addSubview:mainViewBg];
     
@@ -569,13 +576,36 @@ duoleLoginVC* duoleIosSDKloginVC;
     }];
     [bgimageView.superview layoutIfNeeded];
     
-//    [backbtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(CGSizeMake(100, 50));
-//        make.left.top.equalTo(self.view).offset(20);
-//    }];
-    
     mainViewBg.bounds = CGRectMake(0, 0, 250, 280);
     mainViewBg.center = self.view.center;
+}
+-(void)loadMainView{
+    if (MainView) [MainView removeFromSuperview];
+    
+    //黑色地板
+    MainView = [[UIView alloc] init];
+    MainView.alpha = 0.95;
+    MainView.backgroundColor = ColorRGBA(0, 0, 0, 0.6);
+    [[MainView layer]setCornerRadius:10.0];//圆角
+    [mainViewBg addSubview:MainView];
+    
+   
+    //更多方法的按钮
+    moreFunction_btn = [[UIButton alloc] init];
+    moreFunction_btn.showsTouchWhenHighlighted = YES; //按下发光
+    [moreFunction_btn setImage:ImageWithName(@"duole_ios_login.bundle/more_function.png") forState:UIControlStateNormal];
+    [moreFunction_btn addTarget:self action:@selector(moreFunction) forControlEvents:UIControlEventTouchUpInside];
+    [MainView addSubview:moreFunction_btn];
+    
+    
+    //layout
+    MainView.frame  = CGRectMake(0, 0, 250, 280);
+    
+    [moreFunction_btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.top.equalTo(MainView).offset(10);
+        make.right.equalTo(MainView).offset(-20);
+    }];
 }
 
 -(void)loadSecondMainView{
@@ -689,19 +719,7 @@ duoleLoginVC* duoleIosSDKloginVC;
 }
 
 
--(void)loadMainView{
-    if (MainView) [MainView removeFromSuperview];
-    
-    //黑色地板
-    MainView = [[UIView alloc] init];
-    MainView.alpha = 0.95;
-    MainView.backgroundColor = ColorRGBA(0, 0, 0, 0.6);
-    [[MainView layer]setCornerRadius:10.0];//圆角
-    [mainViewBg addSubview:MainView];
-    
-    MainView.frame  = CGRectMake(0, 0, 250, 280);
 
-}
 
 -(void)loadMainViewSubviews{
     //获取登录状态

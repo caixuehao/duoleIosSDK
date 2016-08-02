@@ -29,10 +29,8 @@
 -(NSMutableURLRequest*)getRequestWithURL:(NSString*)url{
     NSLog(@"%@",url);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;//忽略本地缓存数据，直接请求服务端.
     request.HTTPMethod = @"POST";//请求方法
     request.timeoutInterval=5.0;//设置请求超时为5秒
-    
     return request;
 }
 @end

@@ -287,7 +287,6 @@
     NSString* PASS = [pass_arr componentsJoinedByString:@"*"];
     
     //写入钥匙串
-    NSLog(@"=========%@=======",[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"]);
     KeychainItemWrapper *keychain=[[KeychainItemWrapper alloc] initWithIdentifier:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"] accessGroup:nil];// 自定义
     
     [keychain setObject:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"] forKey:(id)kSecAttrService];

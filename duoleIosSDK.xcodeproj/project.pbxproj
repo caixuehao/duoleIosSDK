@@ -57,6 +57,12 @@
 		FC4705DC1D473B7D009F0B62 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4705DA1D473B7D009F0B62 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC4705E81D475EF3009F0B62 /* CAIanimations.h in Headers */ = {isa = PBXBuildFile; fileRef = FC4705E61D475EF3009F0B62 /* CAIanimations.h */; };
 		FC4705E91D475EF3009F0B62 /* CAIanimations.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4705E71D475EF3009F0B62 /* CAIanimations.m */; };
+		FCCA4C861D4F366D00E8ACE8 /* moreFunctionVC.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCA4C841D4F366D00E8ACE8 /* moreFunctionVC.h */; };
+		FCCA4C871D4F366D00E8ACE8 /* moreFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCA4C851D4F366D00E8ACE8 /* moreFunctionVC.m */; };
+		FCCA4C8B1D4F4B8900E8ACE8 /* moreFunctionFileRW.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCA4C891D4F4B8900E8ACE8 /* moreFunctionFileRW.h */; };
+		FCCA4C8C1D4F4B8900E8ACE8 /* moreFunctionFileRW.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCA4C8A1D4F4B8900E8ACE8 /* moreFunctionFileRW.m */; };
+		FCCA4C911D503CD600E8ACE8 /* FateLoginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCA4C8F1D503CD600E8ACE8 /* FateLoginRequest.h */; };
+		FCCA4C921D503CD600E8ACE8 /* FateLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCA4C901D503CD600E8ACE8 /* FateLoginRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +128,12 @@
 		FC4705DA1D473B7D009F0B62 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		FC4705E61D475EF3009F0B62 /* CAIanimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIanimations.h; sourceTree = "<group>"; };
 		FC4705E71D475EF3009F0B62 /* CAIanimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAIanimations.m; sourceTree = "<group>"; };
+		FCCA4C841D4F366D00E8ACE8 /* moreFunctionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moreFunctionVC.h; sourceTree = "<group>"; };
+		FCCA4C851D4F366D00E8ACE8 /* moreFunctionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moreFunctionVC.m; sourceTree = "<group>"; };
+		FCCA4C891D4F4B8900E8ACE8 /* moreFunctionFileRW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moreFunctionFileRW.h; sourceTree = "<group>"; };
+		FCCA4C8A1D4F4B8900E8ACE8 /* moreFunctionFileRW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moreFunctionFileRW.m; sourceTree = "<group>"; };
+		FCCA4C8F1D503CD600E8ACE8 /* FateLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FateLoginRequest.h; sourceTree = "<group>"; };
+		FCCA4C901D503CD600E8ACE8 /* FateLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FateLoginRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +297,8 @@
 			children = (
 				FC4705CD1D47379A009F0B62 /* duoleLoginVC.h */,
 				FC4705CE1D47379A009F0B62 /* duoleLoginVC.m */,
+				FCCA4C841D4F366D00E8ACE8 /* moreFunctionVC.h */,
+				FCCA4C851D4F366D00E8ACE8 /* moreFunctionVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -294,6 +308,8 @@
 			children = (
 				FC4705D41D4737C5009F0B62 /* loginFileReadWrite.h */,
 				FC4705D51D4737C5009F0B62 /* loginFileReadWrite.m */,
+				FCCA4C891D4F4B8900E8ACE8 /* moreFunctionFileRW.h */,
+				FCCA4C8A1D4F4B8900E8ACE8 /* moreFunctionFileRW.m */,
 			);
 			path = fileReadWrite;
 			sourceTree = "<group>";
@@ -307,6 +323,8 @@
 				FC2DF7E71D489868005160BD /* GameLoginRequest.m */,
 				FC2DF7DF1D4861D5005160BD /* XJLLoginRequest.h */,
 				FC2DF7E01D4861D5005160BD /* XJLLoginRequest.m */,
+				FCCA4C8F1D503CD600E8ACE8 /* FateLoginRequest.h */,
+				FCCA4C901D503CD600E8ACE8 /* FateLoginRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -367,7 +385,10 @@
 				FC4705D61D4737C5009F0B62 /* loginFileReadWrite.h in Headers */,
 				FC4705E81D475EF3009F0B62 /* CAIanimations.h in Headers */,
 				FC2DF7F61D48BFE9005160BD /* UIComboBox.h in Headers */,
+				FCCA4C8B1D4F4B8900E8ACE8 /* moreFunctionFileRW.h in Headers */,
 				FC2DF82F1D4EED2B005160BD /* MASConstraint+Private.h in Headers */,
+				FCCA4C861D4F366D00E8ACE8 /* moreFunctionVC.h in Headers */,
+				FCCA4C911D503CD600E8ACE8 /* FateLoginRequest.h in Headers */,
 				FC2DF8301D4EED2B005160BD /* MASConstraint.h in Headers */,
 				FC2DF8361D4EED2B005160BD /* Masonry.h in Headers */,
 				FC2DF8341D4EED2B005160BD /* MASLayoutConstraint.h in Headers */,
@@ -478,7 +499,9 @@
 				FC2DF8031D4B4B1C005160BD /* MBProgressHUD.m in Sources */,
 				FC2DF8451D4EED2B005160BD /* ViewController+MASAdditions.m in Sources */,
 				FC2DF8391D4EED2B005160BD /* MASViewAttribute.m in Sources */,
+				FCCA4C921D503CD600E8ACE8 /* FateLoginRequest.m in Sources */,
 				FC2DF82E1D4EED2B005160BD /* MASCompositeConstraint.m in Sources */,
+				FCCA4C8C1D4F4B8900E8ACE8 /* moreFunctionFileRW.m in Sources */,
 				FC4705D31D47379A009F0B62 /* duoleLoginVC.m in Sources */,
 				FC4705D71D4737C5009F0B62 /* loginFileReadWrite.m in Sources */,
 				FC2DF8331D4EED2B005160BD /* MASConstraintMaker.m in Sources */,
@@ -488,6 +511,7 @@
 				FC2DF83D1D4EED2B005160BD /* NSArray+MASAdditions.m in Sources */,
 				FC2DF7DD1D484F06005160BD /* loginRequest.m in Sources */,
 				FC2DF7F21D48BDE2005160BD /* JCAlertView.m in Sources */,
+				FCCA4C871D4F366D00E8ACE8 /* moreFunctionVC.m in Sources */,
 				FC2DF7F71D48BFE9005160BD /* UIComboBox.m in Sources */,
 				FC2DF83B1D4EED2B005160BD /* MASViewConstraint.m in Sources */,
 			);

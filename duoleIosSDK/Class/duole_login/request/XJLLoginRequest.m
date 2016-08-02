@@ -117,10 +117,10 @@
 
 
 //注册        帐号 密码
--(void)Register:(NSString*)accounts Password:(NSString*)password{
-    NSString *sign = [[NSString alloc] initWithFormat:@"%@%@%@%@%@",@"cwxjl",@"001",accounts,password,SignKey9158];
+-(void)Register:(NSString*)account Password:(NSString*)password{
+    NSString *sign = [[NSString alloc] initWithFormat:@"%@%@%@%@%@",@"cwxjl",@"001",account,password,SignKey9158];
     sign = [self md5:sign];
-    NSString *requestAddress =  [[NSString alloc] initWithFormat:@"%@?memberName=%@&password=%@&func=1&device=%@&sign=%@",Regist_URL,accounts,password,DevieceUUID,sign] ;
+    NSString *requestAddress =  [[NSString alloc] initWithFormat:@"%@?memberName=%@&password=%@&func=1&device=%@&sign=%@",Regist_URL,account,password,DevieceUUID,sign] ;
     [[[NSURLSession sharedSession] dataTaskWithRequest:[self getRequestWithURL:requestAddress] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == nil) {
             NSDictionary* dic =  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
@@ -128,7 +128,7 @@
             if (error == nil) {
                 if ([[dic objectForKey:@"result"] intValue] == 1) {
                     //直接登陆
-                    [self Login:accounts Password:password isNewAccount:YES];
+                    [self Login:account Password:password isNewAccount:YES];
                 }else{
                     NSString* errorStr = [NSString stringWithFormat:@"注册失败:%@",[dic objectForKey:@"message"]];
                     [self.delegate loginFail:errorStr];
@@ -141,10 +141,10 @@
 
 
 //绑定        临时账号 帐号 密码
--(void)Bound:(NSString*)quick_id account:(NSString*)accounts Password:(NSString*)password{
-    NSString *sign = [[NSString alloc] initWithFormat:@"%@%@%@%@%@",@"cwxjl",@"001",accounts,password,SignKey9158];
+-(void)Bound:(NSString*)quick_id account:(NSString*)account Password:(NSString*)password{
+    NSString *sign = [[NSString alloc] initWithFormat:@"%@%@%@%@%@",@"cwxjl",@"001",account,password,SignKey9158];
     sign = [self md5:sign];
-    NSString *requestAddress =  [[NSString alloc] initWithFormat:@"%@?memberName=%@&password=%@&func=1&device=%@&sign=%@",Regist_URL,accounts,password,DevieceUUID,sign] ;
+    NSString *requestAddress =  [[NSString alloc] initWithFormat:@"%@?memberName=%@&password=%@&func=1&device=%@&sign=%@",Regist_URL,account,password,DevieceUUID,sign] ;
     [[[NSURLSession sharedSession] dataTaskWithRequest:[self getRequestWithURL:requestAddress] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == nil) {
             NSDictionary* dic =  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
@@ -154,7 +154,7 @@
                     
                     
                     NSString *sign  = [self md5:[DevieceUUID stringByAppendingString:SIGNKEY]];
-                    NSString *requestAddress =  [[NSString alloc] initWithFormat:@"%@?temp_uid=%@&pf_uid=%@&func=2&device=%@&sign=%@",QuickLogin_URL,quick_id,accounts,DevieceUUID,sign] ;
+                    NSString *requestAddress =  [[NSString alloc] initWithFormat:@"%@?temp_uid=%@&pf_uid=%@&func=2&device=%@&sign=%@",QuickLogin_URL,quick_id,account,DevieceUUID,sign] ;
                     [[[NSURLSession sharedSession] dataTaskWithRequest:[self getRequestWithURL:requestAddress] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                         if (error == nil) {
                             NSDictionary* dic =  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
@@ -163,7 +163,7 @@
                                 if ([[dic objectForKey:@"ret"] intValue] == 0) {
                                     //直接登陆
                                     [_loginFileData removeOBjectAtName:quick_id];
-                                    [self Login:accounts Password:password isNewAccount:YES];
+                                    [self Login:account Password:password isNewAccount:YES];
                                 }else{
                                     NSString* errorStr = [NSString stringWithFormat:@"绑定失败:%@",[dic objectForKey:@"msg"]];
                                     [self.delegate loginFail:errorStr];

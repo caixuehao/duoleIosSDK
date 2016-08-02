@@ -40,11 +40,11 @@
 -(void)Login:(NSString*)account Password:(NSString*)password isNewAccount:(BOOL)isNewAccount;
 
 //注册        帐号 密码
--(void)Register:(NSString*)accounts Password:(NSString*)password;
+-(void)Register:(NSString*)account Password:(NSString*)password;
 
 //绑定        临时账号 帐号 密码
 -(void)Bound:(NSString*)quick_id account:(NSString*)accounts Password:(NSString*)password;
 
 //修改密码   账号  旧密码 新密码
--(void)ChangPassword:(NSString*)accounts oldPassword:(NSString*)oldPassword  newPassword:(NSString*)newPassword;
+-(void)ChangPassword:(NSString*)account oldPassword:(NSString*)oldPassword  newPassword:(NSString*)newPassword;
 @end
