@@ -108,7 +108,7 @@
     //检查路径(本可以放到readUserInfo，因为读去用户信息会用到很多次，故在这里检查。)
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *plistPath1 = [paths objectAtIndex:0];
-    NSString *path=[plistPath1 stringByAppendingPathComponent:Duole_IOSSDK_USERINFO_PATH];
+    NSString *path=[plistPath1 stringByAppendingPathComponent:Duole_IOSSDK_userinfo_PATH];
     
     return path;
 }

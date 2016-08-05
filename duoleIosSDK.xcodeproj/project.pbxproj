@@ -57,6 +57,18 @@
 		FC4705DC1D473B7D009F0B62 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4705DA1D473B7D009F0B62 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC4705E81D475EF3009F0B62 /* CAIanimations.h in Headers */ = {isa = PBXBuildFile; fileRef = FC4705E61D475EF3009F0B62 /* CAIanimations.h */; };
 		FC4705E91D475EF3009F0B62 /* CAIanimations.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4705E71D475EF3009F0B62 /* CAIanimations.m */; };
+		FCA29FF51D5435C7000AF3C3 /* duole_iap.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FE01D5435C7000AF3C3 /* duole_iap.h */; };
+		FCA29FF61D5435C7000AF3C3 /* duole_iap.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA29FE11D5435C7000AF3C3 /* duole_iap.m */; };
+		FCA29FF71D5435C7000AF3C3 /* iapFileRW.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */; };
+		FCA29FF81D5435C7000AF3C3 /* iapFileRW.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA29FE41D5435C7000AF3C3 /* iapFileRW.m */; };
+		FCA29FFD1D5435C7000AF3C3 /* sendReceipt.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FEA1D5435C7000AF3C3 /* sendReceipt.h */; };
+		FCA29FFE1D5435C7000AF3C3 /* sendReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA29FEB1D5435C7000AF3C3 /* sendReceipt.m */; };
+		FCA29FFF1D5435C7000AF3C3 /* duole_log.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FED1D5435C7000AF3C3 /* duole_log.h */; };
+		FCA2A0001D5435C7000AF3C3 /* duole_log.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA29FEE1D5435C7000AF3C3 /* duole_log.m */; };
+		FCA2A0031D5435C7000AF3C3 /* sendFile.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FF31D5435C7000AF3C3 /* sendFile.h */; };
+		FCA2A0041D5435C7000AF3C3 /* sendFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA29FF41D5435C7000AF3C3 /* sendFile.m */; };
+		FCA2A0081D5437CA000AF3C3 /* logFileRW.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA2A0061D5437CA000AF3C3 /* logFileRW.h */; };
+		FCA2A0091D5437CA000AF3C3 /* logFileRW.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA2A0071D5437CA000AF3C3 /* logFileRW.m */; };
 		FCCA4C861D4F366D00E8ACE8 /* moreFunctionVC.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCA4C841D4F366D00E8ACE8 /* moreFunctionVC.h */; };
 		FCCA4C871D4F366D00E8ACE8 /* moreFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCA4C851D4F366D00E8ACE8 /* moreFunctionVC.m */; };
 		FCCA4C8B1D4F4B8900E8ACE8 /* moreFunctionFileRW.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCA4C891D4F4B8900E8ACE8 /* moreFunctionFileRW.h */; };
@@ -130,6 +142,18 @@
 		FC4705DA1D473B7D009F0B62 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		FC4705E61D475EF3009F0B62 /* CAIanimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIanimations.h; sourceTree = "<group>"; };
 		FC4705E71D475EF3009F0B62 /* CAIanimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAIanimations.m; sourceTree = "<group>"; };
+		FCA29FE01D5435C7000AF3C3 /* duole_iap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = duole_iap.h; sourceTree = "<group>"; };
+		FCA29FE11D5435C7000AF3C3 /* duole_iap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = duole_iap.m; sourceTree = "<group>"; };
+		FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapFileRW.h; sourceTree = "<group>"; };
+		FCA29FE41D5435C7000AF3C3 /* iapFileRW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iapFileRW.m; sourceTree = "<group>"; };
+		FCA29FEA1D5435C7000AF3C3 /* sendReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sendReceipt.h; sourceTree = "<group>"; };
+		FCA29FEB1D5435C7000AF3C3 /* sendReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sendReceipt.m; sourceTree = "<group>"; };
+		FCA29FED1D5435C7000AF3C3 /* duole_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = duole_log.h; sourceTree = "<group>"; };
+		FCA29FEE1D5435C7000AF3C3 /* duole_log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = duole_log.m; sourceTree = "<group>"; };
+		FCA29FF31D5435C7000AF3C3 /* sendFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sendFile.h; sourceTree = "<group>"; };
+		FCA29FF41D5435C7000AF3C3 /* sendFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sendFile.m; sourceTree = "<group>"; };
+		FCA2A0061D5437CA000AF3C3 /* logFileRW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logFileRW.h; sourceTree = "<group>"; };
+		FCA2A0071D5437CA000AF3C3 /* logFileRW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logFileRW.m; sourceTree = "<group>"; };
 		FCCA4C841D4F366D00E8ACE8 /* moreFunctionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moreFunctionVC.h; sourceTree = "<group>"; };
 		FCCA4C851D4F366D00E8ACE8 /* moreFunctionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moreFunctionVC.m; sourceTree = "<group>"; };
 		FCCA4C891D4F4B8900E8ACE8 /* moreFunctionFileRW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moreFunctionFileRW.h; sourceTree = "<group>"; };
@@ -239,8 +263,8 @@
 		FC4705651D4713D0009F0B62 /* duoleIosSDK */ = {
 			isa = PBXGroup;
 			children = (
-				FC47057D1D4713E2009F0B62 /* Class */,
 				FC4705661D4713D0009F0B62 /* duoleIosSDK.h */,
+				FC47057D1D4713E2009F0B62 /* Class */,
 				FC4705861D47146F009F0B62 /* Librarys */,
 				FC4705681D4713D0009F0B62 /* Info.plist */,
 			);
@@ -261,6 +285,8 @@
 			children = (
 				FC4705811D4713E2009F0B62 /* Macro */,
 				FC4705CB1D47379A009F0B62 /* duole_login */,
+				FCA29FDF1D5435C7000AF3C3 /* duole_iap */,
+				FCA29FEC1D5435C7000AF3C3 /* duole_log */,
 				FCDBC0DB1D50772E007CA845 /* localNotification */,
 			);
 			path = Class;
@@ -360,6 +386,66 @@
 			path = CAIanimations;
 			sourceTree = "<group>";
 		};
+		FCA29FDF1D5435C7000AF3C3 /* duole_iap */ = {
+			isa = PBXGroup;
+			children = (
+				FCA29FE01D5435C7000AF3C3 /* duole_iap.h */,
+				FCA29FE11D5435C7000AF3C3 /* duole_iap.m */,
+				FCA29FE21D5435C7000AF3C3 /* fileReadWrite */,
+				FCA29FE71D5435C7000AF3C3 /* request */,
+			);
+			name = duole_iap;
+			path = duoleIosSDK/Class/duole_iap;
+			sourceTree = SOURCE_ROOT;
+		};
+		FCA29FE21D5435C7000AF3C3 /* fileReadWrite */ = {
+			isa = PBXGroup;
+			children = (
+				FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */,
+				FCA29FE41D5435C7000AF3C3 /* iapFileRW.m */,
+			);
+			path = fileReadWrite;
+			sourceTree = "<group>";
+		};
+		FCA29FE71D5435C7000AF3C3 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				FCA29FEA1D5435C7000AF3C3 /* sendReceipt.h */,
+				FCA29FEB1D5435C7000AF3C3 /* sendReceipt.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		FCA29FEC1D5435C7000AF3C3 /* duole_log */ = {
+			isa = PBXGroup;
+			children = (
+				FCA29FED1D5435C7000AF3C3 /* duole_log.h */,
+				FCA29FEE1D5435C7000AF3C3 /* duole_log.m */,
+				FCA2A0051D5437CA000AF3C3 /* fileReadWrite */,
+				FCA29FF21D5435C7000AF3C3 /* request */,
+			);
+			name = duole_log;
+			path = duoleIosSDK/Class/duole_log;
+			sourceTree = SOURCE_ROOT;
+		};
+		FCA29FF21D5435C7000AF3C3 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				FCA29FF31D5435C7000AF3C3 /* sendFile.h */,
+				FCA29FF41D5435C7000AF3C3 /* sendFile.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		FCA2A0051D5437CA000AF3C3 /* fileReadWrite */ = {
+			isa = PBXGroup;
+			children = (
+				FCA2A0061D5437CA000AF3C3 /* logFileRW.h */,
+				FCA2A0071D5437CA000AF3C3 /* logFileRW.m */,
+			);
+			path = fileReadWrite;
+			sourceTree = "<group>";
+		};
 		FCDBC0DB1D50772E007CA845 /* localNotification */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,22 +476,28 @@
 				FC2DF7E11D4861D5005160BD /* XJLLoginRequest.h in Headers */,
 				FC2DF8371D4EED2B005160BD /* MASUtilities.h in Headers */,
 				FC2DF8441D4EED2B005160BD /* ViewController+MASAdditions.h in Headers */,
+				FCA29FFF1D5435C7000AF3C3 /* duole_log.h in Headers */,
 				FC2DF83F1D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.h in Headers */,
 				FC2DF7DC1D484F06005160BD /* loginRequest.h in Headers */,
 				FC2DF83E1D4EED2B005160BD /* NSArray+MASShorthandAdditions.h in Headers */,
 				FC2DF8411D4EED2B005160BD /* View+MASAdditions.h in Headers */,
 				FC2DF82D1D4EED2B005160BD /* MASCompositeConstraint.h in Headers */,
 				FC2DF7E51D489846005160BD /* GameLoginRequest.h in Headers */,
+				FCA29FF51D5435C7000AF3C3 /* duole_iap.h in Headers */,
 				FC2DF83C1D4EED2B005160BD /* NSArray+MASAdditions.h in Headers */,
 				FC2DF7F11D48BDE2005160BD /* JCAlertView.h in Headers */,
 				FC4705D61D4737C5009F0B62 /* loginFileReadWrite.h in Headers */,
 				FC4705E81D475EF3009F0B62 /* CAIanimations.h in Headers */,
+				FCA29FFD1D5435C7000AF3C3 /* sendReceipt.h in Headers */,
+				FCA29FF71D5435C7000AF3C3 /* iapFileRW.h in Headers */,
 				FC2DF7F61D48BFE9005160BD /* UIComboBox.h in Headers */,
 				FCCA4C8B1D4F4B8900E8ACE8 /* moreFunctionFileRW.h in Headers */,
+				FCA2A0031D5435C7000AF3C3 /* sendFile.h in Headers */,
 				FC2DF82F1D4EED2B005160BD /* MASConstraint+Private.h in Headers */,
 				FCCA4C861D4F366D00E8ACE8 /* moreFunctionVC.h in Headers */,
 				FCCA4C911D503CD600E8ACE8 /* FateLoginRequest.h in Headers */,
 				FC2DF8301D4EED2B005160BD /* MASConstraint.h in Headers */,
+				FCA2A0081D5437CA000AF3C3 /* logFileRW.h in Headers */,
 				FC2DF8361D4EED2B005160BD /* Masonry.h in Headers */,
 				FC2DF8341D4EED2B005160BD /* MASLayoutConstraint.h in Headers */,
 			);
@@ -508,10 +600,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCDBC0E01D50785C007CA845 /* localNotification.m in Sources */,
+				FCA29FF81D5435C7000AF3C3 /* iapFileRW.m in Sources */,
 				FC2DF8421D4EED2B005160BD /* View+MASAdditions.m in Sources */,
 				FC4705DC1D473B7D009F0B62 /* KeychainItemWrapper.m in Sources */,
 				FC2DF7E81D489868005160BD /* GameLoginRequest.m in Sources */,
 				FC2DF7E21D4861D5005160BD /* XJLLoginRequest.m in Sources */,
+				FCA29FF61D5435C7000AF3C3 /* duole_iap.m in Sources */,
 				FC4705E91D475EF3009F0B62 /* CAIanimations.m in Sources */,
 				FC2DF8031D4B4B1C005160BD /* MBProgressHUD.m in Sources */,
 				FC2DF8451D4EED2B005160BD /* ViewController+MASAdditions.m in Sources */,
@@ -519,15 +613,19 @@
 				FCCA4C921D503CD600E8ACE8 /* FateLoginRequest.m in Sources */,
 				FC2DF82E1D4EED2B005160BD /* MASCompositeConstraint.m in Sources */,
 				FCCA4C8C1D4F4B8900E8ACE8 /* moreFunctionFileRW.m in Sources */,
+				FCA2A0041D5435C7000AF3C3 /* sendFile.m in Sources */,
 				FC4705D31D47379A009F0B62 /* duoleLoginVC.m in Sources */,
+				FCA2A0091D5437CA000AF3C3 /* logFileRW.m in Sources */,
 				FC4705D71D4737C5009F0B62 /* loginFileReadWrite.m in Sources */,
 				FC2DF8331D4EED2B005160BD /* MASConstraintMaker.m in Sources */,
 				FC2DF8311D4EED2B005160BD /* MASConstraint.m in Sources */,
 				FC2DF8401D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				FCA29FFE1D5435C7000AF3C3 /* sendReceipt.m in Sources */,
 				FC2DF8351D4EED2B005160BD /* MASLayoutConstraint.m in Sources */,
 				FC2DF83D1D4EED2B005160BD /* NSArray+MASAdditions.m in Sources */,
 				FC2DF7DD1D484F06005160BD /* loginRequest.m in Sources */,
 				FC2DF7F21D48BDE2005160BD /* JCAlertView.m in Sources */,
+				FCA2A0001D5435C7000AF3C3 /* duole_log.m in Sources */,
 				FCCA4C871D4F366D00E8ACE8 /* moreFunctionVC.m in Sources */,
 				FC2DF7F71D48BFE9005160BD /* UIComboBox.m in Sources */,
 				FC2DF83B1D4EED2B005160BD /* MASViewConstraint.m in Sources */,
