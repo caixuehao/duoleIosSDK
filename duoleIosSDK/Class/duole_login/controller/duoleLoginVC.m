@@ -595,17 +595,18 @@ duoleLoginVC* duoleIosSDKloginVC;
     moreFunction_btn.showsTouchWhenHighlighted = YES; //按下发光
     [moreFunction_btn setImage:ImageWithName(@"duole_ios_login.bundle/more_function.png") forState:UIControlStateNormal];
     [moreFunction_btn addTarget:self action:@selector(moreFunction) forControlEvents:UIControlEventTouchUpInside];
-    [MainView addSubview:moreFunction_btn];
+//    [MainView addSubview:moreFunction_btn];
     
     
     //layout
     MainView.frame  = CGRectMake(0, 0, 250, 280);
     
-    [moreFunction_btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(20, 20));
-        make.top.equalTo(MainView).offset(10);
-        make.right.equalTo(MainView).offset(-20);
-    }];
+//    [moreFunction_btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(20, 20));
+//        make.top.equalTo(MainView).offset(10);
+//        make.right.equalTo(MainView).offset(-20);
+//    }];
+    
 }
 
 -(void)loadSecondMainView{
