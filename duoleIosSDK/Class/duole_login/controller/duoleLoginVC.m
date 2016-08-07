@@ -332,7 +332,7 @@ duoleLoginVC* duoleIosSDKloginVC;
 -(void)ShowHub{
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.bezelView.backgroundColor = ColorRGBA(0, 0, 0, 0.95);
-    hud.label.text = @"Load...";
+    hud.label.text = @"Loading...";
     hud.label.textColor = [UIColor whiteColor];
 }
 

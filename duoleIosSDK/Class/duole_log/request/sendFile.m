@@ -59,7 +59,7 @@
         str = [str stringByAppendingString:arr[i]];
         str = [str stringByAppendingString:@"\n"];
     }
-    NSLog(@"%@",str);
+//    NSLog(@"%@",str);
     //把拼接后的字符串转换为data，设置请求体
     //                    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     request.HTTPBody=[str dataUsingEncoding:NSUTF8StringEncoding];
@@ -67,10 +67,10 @@
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if(error){
-            NSLog(@"发送失败:%@",[error localizedDescription]);
+            NSLog(@"日志发送失败:%@",[error localizedDescription]);
         }
         else{
-            NSLog(@"发送成功");
+            NSLog(@"日志发送成功");
             
         }
         

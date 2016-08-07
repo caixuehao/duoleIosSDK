@@ -66,7 +66,7 @@
          [arr removeObjectsInRange:NSMakeRange(0, arr.count - MAX_LOG)];
     }
     [arr addObject:log];
-    //NSLog(@"%@",log);
+    NSLog(@"%@",log);
     
     [arr writeToFile:[self getSavePath] atomically:YES];
 }

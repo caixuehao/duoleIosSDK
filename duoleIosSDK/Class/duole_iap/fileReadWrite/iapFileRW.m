@@ -8,10 +8,14 @@
 
 #import "iapFileRW.h"
 #import "Macro.h"
-#import <StoreKit/StoreKit.h>
+#import "duole_log.h"
 
 @implementation iapFileRW{
     NSMutableDictionary* plistDataDIC;
+}
+
++(instancetype)share{
+    return [[iapFileRW alloc] init];
 }
 
 -(instancetype)init{
@@ -30,49 +34,70 @@
     
     return plistPath;
 }
+//---------------读------------------
 
+//读取默认的服务器地址
+-(NSString*)getURL{
+     return [[plistDataDIC objectForKey:@"Protocol"] objectForKey:@"URL"];
+}
+
+//读取请求参数
+-(NSMutableDictionary*)getProtocolParameters{
+    return [[plistDataDIC objectForKey:@"Protocol"] objectForKey:@"main_dic"];
+}
 //获取消息字符串
 -(NSString*)getMessageStr:(NSString*)key{
     return [[plistDataDIC objectForKey:@"message"] objectForKey:key];
 }
+//获取商品ID
+-(NSDictionary*)getProducts{
+    return [plistDataDIC objectForKey:@"ProductList"];
+}
 
-//获取丢失订单的收据
--(NSMutableArray*)GetLostOrders{
+//获取收据
+-(NSMutableArray*)getReceipts{
     // 获取Documents目录路径
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
-    NSMutableArray* LostOrders_arr;
+    NSMutableArray* LostReceipts_arr;
     if ([filemgr fileExistsAtPath: [self getPath] ] == NO){
         NSLog(@"文件不存在");
         //创建文件夹
         NSString* CatalogPath = [[self getPath] stringByDeletingLastPathComponent];
         [[NSFileManager defaultManager] createDirectoryAtPath:CatalogPath withIntermediateDirectories:YES attributes:nil error:nil];
-        LostOrders_arr = [[NSMutableArray alloc] init];
-        [LostOrders_arr writeToFile:[self getPath] atomically:YES];
+        LostReceipts_arr = [[NSMutableArray alloc] init];
+        [LostReceipts_arr writeToFile:[self getPath] atomically:YES];
     }else{
-        LostOrders_arr = [[NSMutableArray alloc] initWithContentsOfFile:[self getPath]];
+        LostReceipts_arr = [[NSMutableArray alloc] initWithContentsOfFile:[self getPath]];
     }
-    return LostOrders_arr;
+    return LostReceipts_arr;
 }
 
-
+//---------------写------------------
 //把收据写入本地
--(void)WiretReceipt:(SKPaymentTransaction*)transaction{
+-(void)wiretReceipt:(SKPaymentTransaction*)transaction{
+    NSMutableArray* arr = [self getReceipts];
     
-    NSMutableArray* arr = [self GetLostOrders];
-
+    NSString* protocolInfo = transaction.payment.applicationUsername;
     NSString* receipt = [transaction.transactionReceipt base64Encoding];
-    
-    [arr addObject:receipt];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [paths objectAtIndex:0];
-    path = [path stringByAppendingPathComponent:@"duole_ios_iap_receipt.plist"];
-    [arr writeToFile:path atomically:YES];
+    NSDictionary* dic = @{@"receipt":receipt,
+                          @"protocolInfo":protocolInfo};
+    [arr addObject:dic];
     
     
-    [duole_ios_iap_log WriteLog:@"保存收据"];
+    [arr writeToFile:[self getPath] atomically:YES];
+    [duole_log WriteLog:@"保存收据"];
+}
+//删除收据
+-(void)removeReceipt{
+
+    NSMutableArray* arr = [self getReceipts];
+    if (arr.count == 0) return;
+    
+    [arr removeObjectAtIndex:0];
+    [arr writeToFile:[self getPath] atomically:YES];
+    [duole_log WriteLog:@"删除收据"];
 }
 
 @end

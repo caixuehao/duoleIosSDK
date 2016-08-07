@@ -11,6 +11,8 @@
 
 #import "duoleLoginVC.h"
 #import "localNotification.h"
+#import "duole_iap.h"
+#import "duole_log.h"
 
 //! Project version number for duoleIOSSDK.
 FOUNDATION_EXPORT double duoleIOSSDKVersionNumber;

@@ -19,6 +19,11 @@
  */
 @property(nonatomic,copy)void(^PayFailBlock)(NSDictionary* dic);
 
+/**
+ *  服务器地址
+ */
+@property(nonatomic,strong)NSString* URL;
+
 +(instancetype)share;
 
 
@@ -58,16 +63,7 @@
  *
  *  @param transaction 收据
  */
--(void)WiretReceipt:(id)transaction;
-
-
-
-/**
- *  设置支付地址
- *
- *  @param url 地址
- */
--(void)setPayURL:(NSString*)url;
+//-(void)WiretReceipt:(id)transaction;
 
 
 
@@ -75,7 +71,7 @@
 /**
  *  恢复订单(没啥用)
  */
--(void)resumedPay;
+//-(void)resumedPay;
 
 
 @end
