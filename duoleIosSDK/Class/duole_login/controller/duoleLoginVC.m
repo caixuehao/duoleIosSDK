@@ -790,10 +790,11 @@ duoleLoginVC* duoleIosSDKloginVC;
     }
     
     
-    if (loginMode)  [self updateBtn];
+    [self updateBtn];
 }
 // 刷新按钮(主要是检查账号是临时账号还是正常账号
 -(void)updateBtn{
+    if ([_loginFileData GetInitMode] == 0)return;
     UIButton* btn1 = [self.view viewWithTag:301];
     UIButton* btn2 = [self.view viewWithTag:302];
     [UIView beginAnimations:nil context:NULL];
