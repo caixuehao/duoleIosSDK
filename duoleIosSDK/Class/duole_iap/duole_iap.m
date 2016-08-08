@@ -76,8 +76,8 @@ static duole_iap* duole_iap_share;
     
     //查看玩家是否有掉单
     if ([fileRw getReceipts].count > 0) {
-        NSString* str = [NSString stringWithFormat:[fileRw getMessageStr:@"发现有%lu订单为发送失败，正在补单..."],[fileRw getProducts].count];
-        [self showMessage:str];
+        NSString* str = [NSString stringWithFormat:[fileRw getMessageStr:@"发现有%lu订单为发送失败，正在补单..."],[fileRw getReceipts].count];
+//        [self showMessage:str];
         [duole_log WriteLog:str];
         
         //发送收据

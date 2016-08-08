@@ -56,7 +56,7 @@
 
 //获取收据
 -(NSMutableArray*)getReceipts{
-    // 获取Documents目录路径
+ 
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
