@@ -9,7 +9,7 @@
 #import "moreFunctionVC.h"
 #import "moreFunctionFileRW.h"
 #import "Macro.h"
-#import "Masonry.h"
+//#import "Masonry.h"
 
 @interface moreFunctionVC()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)NSArray<NSDictionary *>* tableData;
@@ -128,10 +128,10 @@
     table.dataSource = self;
     [self.view addSubview:table];
     //layout
-    [backbtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(30, 30));
-        make.top.left.equalTo(self.view).offset(5);
-    }];
+//    [backbtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(30, 30));
+//        make.top.left.equalTo(self.view).offset(5);
+//    }];
     
 //    [removeFileBtn mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.size.mas_equalTo(CGSizeMake(150, 150));
@@ -139,11 +139,11 @@
 //        make.right.equalTo(self.view.mas_centerX).offset(-20);
 //    }];
     
-    [table mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.equalTo(self.view);
-        make.top.equalTo(self.view).offset(40);
-        make.right.equalTo(self.view.mas_centerX);
-    }];
+//    [table mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.bottom.equalTo(self.view);
+//        make.top.equalTo(self.view).offset(40);
+//        make.right.equalTo(self.view.mas_centerX);
+//    }];
     
 }
 @end

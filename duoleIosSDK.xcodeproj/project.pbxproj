@@ -20,31 +20,6 @@
 		FC2DF7FA1D4A0FFE005160BD /* duoleLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4705CE1D47379A009F0B62 /* duoleLoginVC.m */; };
 		FC2DF8021D4B4B1C005160BD /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8001D4B4B1C005160BD /* MBProgressHUD.h */; };
 		FC2DF8031D4B4B1C005160BD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF8011D4B4B1C005160BD /* MBProgressHUD.m */; };
-		FC2DF82D1D4EED2B005160BD /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8141D4EED2B005160BD /* MASCompositeConstraint.h */; };
-		FC2DF82E1D4EED2B005160BD /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF8151D4EED2B005160BD /* MASCompositeConstraint.m */; };
-		FC2DF82F1D4EED2B005160BD /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8161D4EED2B005160BD /* MASConstraint+Private.h */; };
-		FC2DF8301D4EED2B005160BD /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8171D4EED2B005160BD /* MASConstraint.h */; };
-		FC2DF8311D4EED2B005160BD /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF8181D4EED2B005160BD /* MASConstraint.m */; };
-		FC2DF8321D4EED2B005160BD /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8191D4EED2B005160BD /* MASConstraintMaker.h */; };
-		FC2DF8331D4EED2B005160BD /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF81A1D4EED2B005160BD /* MASConstraintMaker.m */; };
-		FC2DF8341D4EED2B005160BD /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF81B1D4EED2B005160BD /* MASLayoutConstraint.h */; };
-		FC2DF8351D4EED2B005160BD /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF81C1D4EED2B005160BD /* MASLayoutConstraint.m */; };
-		FC2DF8361D4EED2B005160BD /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF81D1D4EED2B005160BD /* Masonry.h */; };
-		FC2DF8371D4EED2B005160BD /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF81E1D4EED2B005160BD /* MASUtilities.h */; };
-		FC2DF8381D4EED2B005160BD /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF81F1D4EED2B005160BD /* MASViewAttribute.h */; };
-		FC2DF8391D4EED2B005160BD /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF8201D4EED2B005160BD /* MASViewAttribute.m */; };
-		FC2DF83A1D4EED2B005160BD /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8211D4EED2B005160BD /* MASViewConstraint.h */; };
-		FC2DF83B1D4EED2B005160BD /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF8221D4EED2B005160BD /* MASViewConstraint.m */; };
-		FC2DF83C1D4EED2B005160BD /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8231D4EED2B005160BD /* NSArray+MASAdditions.h */; };
-		FC2DF83D1D4EED2B005160BD /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF8241D4EED2B005160BD /* NSArray+MASAdditions.m */; };
-		FC2DF83E1D4EED2B005160BD /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8251D4EED2B005160BD /* NSArray+MASShorthandAdditions.h */; };
-		FC2DF83F1D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8261D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.h */; };
-		FC2DF8401D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF8271D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		FC2DF8411D4EED2B005160BD /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF8281D4EED2B005160BD /* View+MASAdditions.h */; };
-		FC2DF8421D4EED2B005160BD /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF8291D4EED2B005160BD /* View+MASAdditions.m */; };
-		FC2DF8431D4EED2B005160BD /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF82A1D4EED2B005160BD /* View+MASShorthandAdditions.h */; };
-		FC2DF8441D4EED2B005160BD /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF82B1D4EED2B005160BD /* ViewController+MASAdditions.h */; };
-		FC2DF8451D4EED2B005160BD /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF82C1D4EED2B005160BD /* ViewController+MASAdditions.m */; };
 		FC4705671D4713D0009F0B62 /* duoleIosSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FC4705661D4713D0009F0B62 /* duoleIosSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC47056E1D4713D0009F0B62 /* duoleIosSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4705631D4713D0009F0B62 /* duoleIosSDK.framework */; };
 		FC4705731D4713D0009F0B62 /* duoleIosSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4705721D4713D0009F0B62 /* duoleIosSDKTests.m */; };
@@ -196,31 +171,6 @@
 		FC2DF7F51D48BFE9005160BD /* UIComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIComboBox.m; sourceTree = "<group>"; };
 		FC2DF8001D4B4B1C005160BD /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FC2DF8011D4B4B1C005160BD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		FC2DF8141D4EED2B005160BD /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
-		FC2DF8151D4EED2B005160BD /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
-		FC2DF8161D4EED2B005160BD /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
-		FC2DF8171D4EED2B005160BD /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
-		FC2DF8181D4EED2B005160BD /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
-		FC2DF8191D4EED2B005160BD /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
-		FC2DF81A1D4EED2B005160BD /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
-		FC2DF81B1D4EED2B005160BD /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
-		FC2DF81C1D4EED2B005160BD /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
-		FC2DF81D1D4EED2B005160BD /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
-		FC2DF81E1D4EED2B005160BD /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
-		FC2DF81F1D4EED2B005160BD /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
-		FC2DF8201D4EED2B005160BD /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
-		FC2DF8211D4EED2B005160BD /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
-		FC2DF8221D4EED2B005160BD /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
-		FC2DF8231D4EED2B005160BD /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		FC2DF8241D4EED2B005160BD /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		FC2DF8251D4EED2B005160BD /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		FC2DF8261D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		FC2DF8271D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		FC2DF8281D4EED2B005160BD /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
-		FC2DF8291D4EED2B005160BD /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
-		FC2DF82A1D4EED2B005160BD /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		FC2DF82B1D4EED2B005160BD /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		FC2DF82C1D4EED2B005160BD /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		FC4705631D4713D0009F0B62 /* duoleIosSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = duoleIosSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4705661D4713D0009F0B62 /* duoleIosSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = duoleIosSDK.h; sourceTree = "<group>"; };
 		FC4705681D4713D0009F0B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -400,38 +350,6 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		FC2DF8131D4EED2B005160BD /* Masonry */ = {
-			isa = PBXGroup;
-			children = (
-				FC2DF8141D4EED2B005160BD /* MASCompositeConstraint.h */,
-				FC2DF8151D4EED2B005160BD /* MASCompositeConstraint.m */,
-				FC2DF8161D4EED2B005160BD /* MASConstraint+Private.h */,
-				FC2DF8171D4EED2B005160BD /* MASConstraint.h */,
-				FC2DF8181D4EED2B005160BD /* MASConstraint.m */,
-				FC2DF8191D4EED2B005160BD /* MASConstraintMaker.h */,
-				FC2DF81A1D4EED2B005160BD /* MASConstraintMaker.m */,
-				FC2DF81B1D4EED2B005160BD /* MASLayoutConstraint.h */,
-				FC2DF81C1D4EED2B005160BD /* MASLayoutConstraint.m */,
-				FC2DF81D1D4EED2B005160BD /* Masonry.h */,
-				FC2DF81E1D4EED2B005160BD /* MASUtilities.h */,
-				FC2DF81F1D4EED2B005160BD /* MASViewAttribute.h */,
-				FC2DF8201D4EED2B005160BD /* MASViewAttribute.m */,
-				FC2DF8211D4EED2B005160BD /* MASViewConstraint.h */,
-				FC2DF8221D4EED2B005160BD /* MASViewConstraint.m */,
-				FC2DF8231D4EED2B005160BD /* NSArray+MASAdditions.h */,
-				FC2DF8241D4EED2B005160BD /* NSArray+MASAdditions.m */,
-				FC2DF8251D4EED2B005160BD /* NSArray+MASShorthandAdditions.h */,
-				FC2DF8261D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.h */,
-				FC2DF8271D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.m */,
-				FC2DF8281D4EED2B005160BD /* View+MASAdditions.h */,
-				FC2DF8291D4EED2B005160BD /* View+MASAdditions.m */,
-				FC2DF82A1D4EED2B005160BD /* View+MASShorthandAdditions.h */,
-				FC2DF82B1D4EED2B005160BD /* ViewController+MASAdditions.h */,
-				FC2DF82C1D4EED2B005160BD /* ViewController+MASAdditions.m */,
-			);
-			path = Masonry;
-			sourceTree = "<group>";
-		};
 		FC4705591D4713D0009F0B62 = {
 			isa = PBXGroup;
 			children = (
@@ -496,7 +414,6 @@
 				FC67EBC81D564F2A00F22001 /* RMStore */,
 				FC2DF7FF1D4B4B1C005160BD /* MBProgressHUD */,
 				FC2DF7EC1D48BDE2005160BD /* JCAlertView */,
-				FC2DF8131D4EED2B005160BD /* Masonry */,
 				FC4705E51D475EF3009F0B62 /* CAIanimations */,
 				FC4705D81D473B7D009F0B62 /* KeychainItemWrapper */,
 			);
@@ -803,19 +720,15 @@
 				FC67EC2E1D564F2A00F22001 /* asn1.h in Headers */,
 				FC67EC801D564F2A00F22001 /* RMStoreTransaction.h in Headers */,
 				FC67EC681D564F2A00F22001 /* srtp.h in Headers */,
-				FC2DF8381D4EED2B005160BD /* MASViewAttribute.h in Headers */,
 				FC67EC3C1D564F2A00F22001 /* crypto.h in Headers */,
 				FC67EC5E1D564F2A00F22001 /* pqueue.h in Headers */,
-				FC2DF8321D4EED2B005160BD /* MASConstraintMaker.h in Headers */,
 				FC67EC441D564F2A00F22001 /* ebcdic.h in Headers */,
 				FC67EC7C1D564F2A00F22001 /* RMStoreAppReceiptVerifier.h in Headers */,
 				FCDBC0DF1D50785C007CA845 /* localNotification.h in Headers */,
 				FC67EC741D564F2A00F22001 /* whrlpool.h in Headers */,
 				FC4705D21D47379A009F0B62 /* duoleLoginVC.h in Headers */,
-				FC2DF8431D4EED2B005160BD /* View+MASShorthandAdditions.h in Headers */,
 				FC67EC691D564F2A00F22001 /* ssl.h in Headers */,
 				FC67EC6B1D564F2A00F22001 /* ssl23.h in Headers */,
-				FC2DF83A1D4EED2B005160BD /* MASViewConstraint.h in Headers */,
 				FC4705851D4713E2009F0B62 /* Macro.h in Headers */,
 				FC67EC431D564F2A00F22001 /* e_os2.h in Headers */,
 				FC2DF8021D4B4B1C005160BD /* MBProgressHUD.h in Headers */,
@@ -832,8 +745,6 @@
 				FC67EC511D564F2A00F22001 /* md5.h in Headers */,
 				FC67EC4B1D564F2A00F22001 /* hmac.h in Headers */,
 				FC67EC461D564F2A00F22001 /* ecdh.h in Headers */,
-				FC2DF8371D4EED2B005160BD /* MASUtilities.h in Headers */,
-				FC2DF8441D4EED2B005160BD /* ViewController+MASAdditions.h in Headers */,
 				FC67EC5F1D564F2A00F22001 /* rand.h in Headers */,
 				FC67EC5B1D564F2A00F22001 /* pem2.h in Headers */,
 				FC67EC721D564F2A00F22001 /* ui.h in Headers */,
@@ -842,21 +753,17 @@
 				FC67EC3D1D564F2A00F22001 /* des.h in Headers */,
 				FC67EC351D564F2A00F22001 /* camellia.h in Headers */,
 				FC67EC611D564F2A00F22001 /* rc4.h in Headers */,
-				FC2DF83F1D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.h in Headers */,
 				FC67EC631D564F2A00F22001 /* rsa.h in Headers */,
 				FC2DF7DC1D484F06005160BD /* loginRequest.h in Headers */,
-				FC2DF83E1D4EED2B005160BD /* NSArray+MASShorthandAdditions.h in Headers */,
 				FC67EC411D564F2A00F22001 /* dso.h in Headers */,
 				FC67EC3A1D564F2A00F22001 /* conf.h in Headers */,
 				FC67EC3F1D564F2A00F22001 /* dh.h in Headers */,
 				FC67EC7A1D564F2A00F22001 /* RMAppReceipt.h in Headers */,
 				FC67EC321D564F2A00F22001 /* blowfish.h in Headers */,
 				FC67EC641D564F2A00F22001 /* safestack.h in Headers */,
-				FC2DF8411D4EED2B005160BD /* View+MASAdditions.h in Headers */,
 				FC67EC471D564F2A00F22001 /* ecdsa.h in Headers */,
 				FC67EC5A1D564F2A00F22001 /* pem.h in Headers */,
 				FC67EC2F1D564F2A00F22001 /* asn1_mac.h in Headers */,
-				FC2DF82D1D4EED2B005160BD /* MASCompositeConstraint.h in Headers */,
 				FC67EC591D564F2A00F22001 /* ossl_typ.h in Headers */,
 				FC67EC671D564F2A00F22001 /* srp.h in Headers */,
 				FC67EC331D564F2A00F22001 /* bn.h in Headers */,
@@ -868,7 +775,6 @@
 				FC67EC761D564F2A00F22001 /* x509_vfy.h in Headers */,
 				FC2DF7E51D489846005160BD /* GameLoginRequest.h in Headers */,
 				FC67EC551D564F2A00F22001 /* objects.h in Headers */,
-				FC2DF83C1D4EED2B005160BD /* NSArray+MASAdditions.h in Headers */,
 				FC67EC4C1D564F2A00F22001 /* idea.h in Headers */,
 				FC67EC381D564F2A00F22001 /* cms.h in Headers */,
 				FC67EC3B1D564F2A00F22001 /* conf_api.h in Headers */,
@@ -895,7 +801,6 @@
 				FC67EC531D564F2A00F22001 /* modes.h in Headers */,
 				FCCA4C8B1D4F4B8900E8ACE8 /* moreFunctionFileRW.h in Headers */,
 				FCA2A0031D5435C7000AF3C3 /* sendFile.h in Headers */,
-				FC2DF82F1D4EED2B005160BD /* MASConstraint+Private.h in Headers */,
 				FC67EC6A1D564F2A00F22001 /* ssl2.h in Headers */,
 				FC67EC341D564F2A00F22001 /* buffer.h in Headers */,
 				FCCA4C861D4F366D00E8ACE8 /* moreFunctionVC.h in Headers */,
@@ -903,17 +808,14 @@
 				FC67EC4A1D564F2A00F22001 /* evp.h in Headers */,
 				FC67EC361D564F2A00F22001 /* cast.h in Headers */,
 				FC67EC421D564F2A00F22001 /* dtls1.h in Headers */,
-				FC2DF8301D4EED2B005160BD /* MASConstraint.h in Headers */,
 				FC67EC451D564F2A00F22001 /* ec.h in Headers */,
 				FC67EC7E1D564F2A00F22001 /* RMStoreKeychainPersistence.h in Headers */,
 				FCA2A0081D5437CA000AF3C3 /* logFileRW.h in Headers */,
 				FC67EC621D564F2A00F22001 /* ripemd.h in Headers */,
 				FC67EC711D564F2A00F22001 /* txt_db.h in Headers */,
-				FC2DF8361D4EED2B005160BD /* Masonry.h in Headers */,
 				FC67EC571D564F2A00F22001 /* opensslconf.h in Headers */,
 				FC67EC771D564F2A00F22001 /* x509v3.h in Headers */,
 				FC67EC541D564F2A00F22001 /* obj_mac.h in Headers */,
-				FC2DF8341D4EED2B005160BD /* MASLayoutConstraint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,7 +920,6 @@
 				FC67EC831D564F2A00F22001 /* RMStoreTransactionReceiptVerifier.m in Sources */,
 				FCDBC0E01D50785C007CA845 /* localNotification.m in Sources */,
 				FCA29FF81D5435C7000AF3C3 /* iapFileRW.m in Sources */,
-				FC2DF8421D4EED2B005160BD /* View+MASAdditions.m in Sources */,
 				FC4705DC1D473B7D009F0B62 /* KeychainItemWrapper.m in Sources */,
 				FC2DF7E81D489868005160BD /* GameLoginRequest.m in Sources */,
 				FC67EC811D564F2A00F22001 /* RMStoreTransaction.m in Sources */,
@@ -1026,10 +927,7 @@
 				FCA29FF61D5435C7000AF3C3 /* duole_iap.m in Sources */,
 				FC4705E91D475EF3009F0B62 /* CAIanimations.m in Sources */,
 				FC2DF8031D4B4B1C005160BD /* MBProgressHUD.m in Sources */,
-				FC2DF8451D4EED2B005160BD /* ViewController+MASAdditions.m in Sources */,
-				FC2DF8391D4EED2B005160BD /* MASViewAttribute.m in Sources */,
 				FCCA4C921D503CD600E8ACE8 /* FateLoginRequest.m in Sources */,
-				FC2DF82E1D4EED2B005160BD /* MASCompositeConstraint.m in Sources */,
 				FCCA4C8C1D4F4B8900E8ACE8 /* moreFunctionFileRW.m in Sources */,
 				FCA2A0041D5435C7000AF3C3 /* sendFile.m in Sources */,
 				FC4705D31D47379A009F0B62 /* duoleLoginVC.m in Sources */,
@@ -1037,13 +935,8 @@
 				FCA2A0091D5437CA000AF3C3 /* logFileRW.m in Sources */,
 				FC67EBC51D56473900F22001 /* duole_iap.md in Sources */,
 				FC4705D71D4737C5009F0B62 /* loginFileReadWrite.m in Sources */,
-				FC2DF8331D4EED2B005160BD /* MASConstraintMaker.m in Sources */,
-				FC2DF8311D4EED2B005160BD /* MASConstraint.m in Sources */,
 				FC67EC7B1D564F2A00F22001 /* RMAppReceipt.m in Sources */,
-				FC2DF8401D4EED2B005160BD /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				FCA29FFE1D5435C7000AF3C3 /* sendReceipt.m in Sources */,
-				FC2DF8351D4EED2B005160BD /* MASLayoutConstraint.m in Sources */,
-				FC2DF83D1D4EED2B005160BD /* NSArray+MASAdditions.m in Sources */,
 				FC2DF7DD1D484F06005160BD /* loginRequest.m in Sources */,
 				FC2DF7F21D48BDE2005160BD /* JCAlertView.m in Sources */,
 				FC67EC7D1D564F2A00F22001 /* RMStoreAppReceiptVerifier.m in Sources */,
@@ -1052,7 +945,6 @@
 				FC67EC871D564F2A00F22001 /* RMStore.m in Sources */,
 				FC2DF7F71D48BFE9005160BD /* UIComboBox.m in Sources */,
 				FC67EC7F1D564F2A00F22001 /* RMStoreKeychainPersistence.m in Sources */,
-				FC2DF83B1D4EED2B005160BD /* MASViewConstraint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1183,7 +1075,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/duoleIosSDK/Librarys/RMStore/Optional/openssl-1.0.1e/lib",
 				);
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duole.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1207,7 +1099,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/duoleIosSDK/Librarys/RMStore/Optional/openssl-1.0.1e/lib",
 				);
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duole.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

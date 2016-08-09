@@ -10,7 +10,7 @@
 #import "loginFileReadWrite.h"
 #import "Macro.h"
 #import "UIComboBox.h"
-#import <Masonry.h>
+//#import "Masonry.h"
 #import <CoreMotion/CoreMotion.h>
 #import "CAIanimations.h"
 #import "loginRequest.h"
@@ -90,10 +90,12 @@ duoleLoginVC* duoleIosSDKloginVC;
 - (void)viewDidAppear:(BOOL)animated{
     if (bgimageView.image) {
         [UIView animateWithDuration:2.0 animations:^{
-            [bgimageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.center.equalTo(self.view);
-                make.size.equalTo(self.view).multipliedBy(1.2);
-            }];
+//            [bgimageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.center.equalTo(self.view);
+//                make.size.equalTo(self.view).multipliedBy(1.2);
+//            }];
+            bgimageView.bounds = CGRectMake(0, 0, self.view.frame.size.width*1.2, self.view.frame.size.height*1.2);
+            bgimageView.center = self.view.center;
             [bgimageView.superview layoutIfNeeded];
         }];
     }
@@ -143,10 +145,12 @@ duoleLoginVC* duoleIosSDKloginVC;
     
     [UIView animateWithDuration:2.0 animations:^{
         if(bgimageView.image){
-            [bgimageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(self.view);
-                make.center.equalTo(self.view);
-            }];
+//            [bgimageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.edges.equalTo(self.view);
+//                make.center.equalTo(self.view);
+//            }];
+            bgimageView.frame = self.view.frame;
+            bgimageView.center = self.view.center;
             [bgimageView.superview layoutIfNeeded];
         }
          self.view.backgroundColor = ColorRGBA(0, 0, 0, 0);
@@ -250,10 +254,13 @@ duoleLoginVC* duoleIosSDKloginVC;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:1];
     [mainViewBg exchangeSubviewAtIndex:num1 withSubviewAtIndex:num2];
-    [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(250, 280));
-    }];
+//    [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.view);
+//        make.size.mas_equalTo(CGSizeMake(250, 280));
+//    }];
+    mainViewBg.bounds = CGRectMake(0, 0, 250, 280);
+    mainViewBg.center = self.view.center;
+    
     [mainViewBg.superview layoutIfNeeded];
     [UIView setAnimationTransition:[self getAnimtionTransition]  forView:mainViewBg cache:YES];
     [UIView commitAnimations];
@@ -462,22 +469,24 @@ duoleLoginVC* duoleIosSDKloginVC;
         CGRect firstResponder_frame =  [self getAbsoluteCoordinate:firstResponder];
         float h1 = firstResponder_frame.origin.y + firstResponder_frame.size.height;//当前uiview底部的高度
         float h2 = self.view.frame.size.height - kbSize.height;//键盘顶部的高度
-        if(isIos7System)h2 = self.view.frame.size.width - kbSize.width;
+        if(isIos7System)h2 = self.view.frame.size.height - kbSize.width;
         //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
         if (h1 > h2) {
            
-            [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(self.view);
-                make.centerY.equalTo(self.view).offset(-h1+h2);
-                make.size.mas_equalTo(CGSizeMake(250, 280));
-            }];
+//            [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.centerX.equalTo(self.view);
+//                make.centerY.equalTo(self.view).offset(-h1+h2);
+//                make.size.mas_equalTo(CGSizeMake(250, 280));
+//            }];
+            mainViewBg.center = CGPointMake(self.view.center.x, self.view.center.y+h2-h1);
             [mainViewBg layoutIfNeeded];
 
         }else{
-            [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.center.equalTo(self.view);
-                make.size.mas_equalTo(CGSizeMake(250, 280));
-            }];
+//            [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.center.equalTo(self.view);
+//                make.size.mas_equalTo(CGSizeMake(250, 280));
+//            }];
+            mainViewBg.center = self.view.center;
             [mainViewBg layoutIfNeeded];
         }
     }];
@@ -518,10 +527,11 @@ duoleLoginVC* duoleIosSDKloginVC;
 //当键盘隐藏的时候
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification{
     [UIView animateWithDuration:0.3 animations:^{
-        [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self.view);
-            make.size.mas_equalTo(CGSizeMake(250, 280));
-        }];
+//        [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.center.equalTo(self.view);
+//            make.size.mas_equalTo(CGSizeMake(250, 280));
+//        }];
+        mainViewBg.center = self.view.center;
         [mainViewBg layoutIfNeeded];
     }];
 }
@@ -570,10 +580,12 @@ duoleLoginVC* duoleIosSDKloginVC;
     
 
     // Layout
-    [bgimageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-        make.center.equalTo(self.view);
-    }];
+//    [bgimageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//        make.center.equalTo(self.view);
+//    }];
+    bgimageView.frame = self.view.frame;
+    bgimageView.center = self.view.center;
     [bgimageView.superview layoutIfNeeded];
     
     mainViewBg.bounds = CGRectMake(0, 0, 250, 280);
