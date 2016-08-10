@@ -421,11 +421,13 @@ duoleLoginVC* duoleIosSDKloginVC;
 }
 
 -(void)loginSuccess:(NSMutableDictionary*)data{
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [hud hideAnimated:YES];hud = nil;
         [self back];
+        if(_loginSuccessBlock)_loginSuccessBlock(data);
     });
-    if(_loginSuccessBlock)_loginSuccessBlock(data);
+    
 }
 #pragma mark - UIComBoBoxDelegate
 //下拉列表的点击事件代理
