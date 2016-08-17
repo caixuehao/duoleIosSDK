@@ -5,11 +5,11 @@
 //  Created by cxh on 16/8/1.
 //  Copyright © 2016年 cxh. All rights reserved.
 //
-
 #import "moreFunctionVC.h"
 #import "moreFunctionFileRW.h"
 #import "Macro.h"
 //#import "Masonry.h"
+#import "JCAlertView.h"
 
 @interface moreFunctionVC()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)NSArray<NSDictionary *>* tableData;
@@ -65,6 +65,13 @@
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(void)removeFile{
+    [JCAlertView showTwoButtonsWithTitle:@"删除更新包" Message:@"将删除所有本地文件，你需要重新下载所有更新包。" ButtonType:JCAlertViewButtonTypeCancel ButtonTitle:@"确定" Click:^{
+        [[moreFunctionFileRW share] removeUpdateFile];
+    } ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"取消" Click:nil];
+
+}
 #pragma UITableDelegate--
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -116,28 +123,25 @@
     [self.view addSubview:backbtn];
     
     //删除文件按钮
-//    UIButton* removeFileBtn = [[UIButton alloc] init];
-//    removeFileBtn.backgroundColor = [UIColor blueColor];
-//    backbtn.showsTouchWhenHighlighted = YES;
-//    [backbtn addTarget:self action:@selector(backbtn) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:removeFileBtn];
+    UIButton* removeFileBtn = [[UIButton alloc] init];
+    removeFileBtn.backgroundColor = [UIColor colorWithRed:0.2 green:0.7 blue:0.6 alpha:1];
+    removeFileBtn.layer.cornerRadius = 5.0;
+    [removeFileBtn.titleLabel setFont:[UIFont systemFontOfSize:13]];
+    removeFileBtn.showsTouchWhenHighlighted = YES;
+    [removeFileBtn setTitle:@"删除更新包" forState:UIControlStateNormal];
+    [removeFileBtn addTarget:self action:@selector(removeFile) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:removeFileBtn];
     
-    UITableView* table = [[UITableView alloc] init];
-    table.separatorStyle = UITableViewCellSeparatorStyleNone;
-    table.delegate = self;
-    table.dataSource = self;
-    [self.view addSubview:table];
+//    UITableView* table = [[UITableView alloc] init];
+//    table.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    table.delegate = self;
+//    table.dataSource = self;
+//    [self.view addSubview:table];
     //layout
-//    [backbtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(CGSizeMake(30, 30));
-//        make.top.left.equalTo(self.view).offset(5);
-//    }];
-    
-//    [removeFileBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(CGSizeMake(150, 150));
-//        make.centerY.equalTo(self.view);
-//        make.right.equalTo(self.view.mas_centerX).offset(-20);
-//    }];
+
+    backbtn.frame = CGRectMake(5, 5, 40, 40);
+    removeFileBtn.frame = CGRectMake(5, 60, 70, 30);
+
     
 //    [table mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.bottom.equalTo(self.view);

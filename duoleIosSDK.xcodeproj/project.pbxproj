@@ -126,6 +126,8 @@
 		FC67EC851D564F2A00F22001 /* RMStoreUserDefaultsPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = FC67EC281D564F2A00F22001 /* RMStoreUserDefaultsPersistence.m */; };
 		FC67EC861D564F2A00F22001 /* RMStore.h in Headers */ = {isa = PBXBuildFile; fileRef = FC67EC291D564F2A00F22001 /* RMStore.h */; };
 		FC67EC871D564F2A00F22001 /* RMStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FC67EC2A1D564F2A00F22001 /* RMStore.m */; };
+		FC749C861D63FED900993327 /* Eggs.h in Headers */ = {isa = PBXBuildFile; fileRef = FC749C841D63FED900993327 /* Eggs.h */; };
+		FC749C871D63FED900993327 /* Eggs.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C851D63FED900993327 /* Eggs.m */; };
 		FCA29FF51D5435C7000AF3C3 /* duole_iap.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FE01D5435C7000AF3C3 /* duole_iap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCA29FF61D5435C7000AF3C3 /* duole_iap.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA29FE11D5435C7000AF3C3 /* duole_iap.m */; };
 		FCA29FF71D5435C7000AF3C3 /* iapFileRW.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */; };
@@ -280,6 +282,8 @@
 		FC67EC281D564F2A00F22001 /* RMStoreUserDefaultsPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStoreUserDefaultsPersistence.m; sourceTree = "<group>"; };
 		FC67EC291D564F2A00F22001 /* RMStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMStore.h; sourceTree = "<group>"; };
 		FC67EC2A1D564F2A00F22001 /* RMStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStore.m; sourceTree = "<group>"; };
+		FC749C841D63FED900993327 /* Eggs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Eggs.h; path = Eggs/Eggs.h; sourceTree = "<group>"; };
+		FC749C851D63FED900993327 /* Eggs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Eggs.m; path = Eggs/Eggs.m; sourceTree = "<group>"; };
 		FCA29FE01D5435C7000AF3C3 /* duole_iap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = duole_iap.h; sourceTree = "<group>"; };
 		FCA29FE11D5435C7000AF3C3 /* duole_iap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = duole_iap.m; sourceTree = "<group>"; };
 		FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapFileRW.h; sourceTree = "<group>"; };
@@ -391,6 +395,7 @@
 		FC47057D1D4713E2009F0B62 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				FC749C8C1D643EC400993327 /* Category */,
 				FC4705811D4713E2009F0B62 /* Macro */,
 				FC4705CB1D47379A009F0B62 /* duole_login */,
 				FCA29FDF1D5435C7000AF3C3 /* duole_iap */,
@@ -471,6 +476,7 @@
 		FC4705D11D47379A009F0B62 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				FC749C831D63FE9F00993327 /* Eggs */,
 				FC2DF7F31D48BFE9005160BD /* UIComboBox */,
 			);
 			path = view;
@@ -634,6 +640,22 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		FC749C831D63FE9F00993327 /* Eggs */ = {
+			isa = PBXGroup;
+			children = (
+				FC749C841D63FED900993327 /* Eggs.h */,
+				FC749C851D63FED900993327 /* Eggs.m */,
+			);
+			name = Eggs;
+			sourceTree = "<group>";
+		};
+		FC749C8C1D643EC400993327 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		FCA29FDF1D5435C7000AF3C3 /* duole_iap */ = {
 			isa = PBXGroup;
 			children = (
@@ -752,6 +774,7 @@
 				FC67EC6D1D564F2A00F22001 /* stack.h in Headers */,
 				FC67EC3D1D564F2A00F22001 /* des.h in Headers */,
 				FC67EC351D564F2A00F22001 /* camellia.h in Headers */,
+				FC749C861D63FED900993327 /* Eggs.h in Headers */,
 				FC67EC611D564F2A00F22001 /* rc4.h in Headers */,
 				FC67EC631D564F2A00F22001 /* rsa.h in Headers */,
 				FC2DF7DC1D484F06005160BD /* loginRequest.h in Headers */,
@@ -918,6 +941,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC67EC831D564F2A00F22001 /* RMStoreTransactionReceiptVerifier.m in Sources */,
+				FC749C871D63FED900993327 /* Eggs.m in Sources */,
 				FCDBC0E01D50785C007CA845 /* localNotification.m in Sources */,
 				FCA29FF81D5435C7000AF3C3 /* iapFileRW.m in Sources */,
 				FC4705DC1D473B7D009F0B62 /* KeychainItemWrapper.m in Sources */,

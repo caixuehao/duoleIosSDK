@@ -18,7 +18,7 @@
 #import "MBProgressHUD.h"
 
 #import "moreFunctionVC.h"
-
+#import "Eggs.h"
 
 #define isIos7System [[[UIDevice currentDevice] systemVersion] floatValue] <= 7.0
 duoleLoginVC* duoleIosSDKloginVC;
@@ -41,7 +41,7 @@ duoleLoginVC* duoleIosSDKloginVC;
     UIView* mainViewBg;
     UIView* MainView;//主视图（刚显示时的）
     UIView* SecondMainView;//二级视图处理一些输入逻辑
-    
+    UIComboBox* box;
 
     NSMutableArray<UITextField*>* TF_arr;//文本输入框数组
     MBProgressHUD *hud;//load....
@@ -90,10 +90,6 @@ duoleLoginVC* duoleIosSDKloginVC;
 - (void)viewDidAppear:(BOOL)animated{
     if (bgimageView.image) {
         [UIView animateWithDuration:2.0 animations:^{
-//            [bgimageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.center.equalTo(self.view);
-//                make.size.equalTo(self.view).multipliedBy(1.2);
-//            }];
             bgimageView.bounds = CGRectMake(0, 0, self.view.frame.size.width*1.2, self.view.frame.size.height*1.2);
             bgimageView.center = self.view.center;
             [bgimageView.superview layoutIfNeeded];
@@ -115,6 +111,10 @@ duoleLoginVC* duoleIosSDKloginVC;
     [self loadMainViewSubviews];
     
     [self loadActions];
+    
+    //+1s
+    [Eggs xunMing:MainView];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,7 +126,14 @@ duoleLoginVC* duoleIosSDKloginVC;
     if (bgimageView.image) {
        [self addPerspectiveBackground];
     }
-  
+    __block UIButton* blokbtn = moreFunction_btn;
+    box.zuanQuan = ^(NSInteger i){
+        if (i==10) {
+            blokbtn.alpha = 1;
+            blokbtn.enabled = YES;
+        }
+    };
+
 
     //使用NSNotificationCenter 键盘出现时
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
@@ -228,6 +235,7 @@ duoleLoginVC* duoleIosSDKloginVC;
 
 
 #pragma mark - btnAction
+
 //更多功能
 -(void)moreFunction{
     CATransition *transition = [CATransition animation];
@@ -474,20 +482,10 @@ duoleLoginVC* duoleIosSDKloginVC;
         if(isIos7System)h2 = self.view.frame.size.height - kbSize.width;
         //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
         if (h1 > h2) {
-           
-//            [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.centerX.equalTo(self.view);
-//                make.centerY.equalTo(self.view).offset(-h1+h2);
-//                make.size.mas_equalTo(CGSizeMake(250, 280));
-//            }];
             mainViewBg.center = CGPointMake(self.view.center.x, self.view.center.y+h2-h1);
             [mainViewBg layoutIfNeeded];
 
         }else{
-//            [mainViewBg mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.center.equalTo(self.view);
-//                make.size.mas_equalTo(CGSizeMake(250, 280));
-//            }];
             mainViewBg.center = self.view.center;
             [mainViewBg layoutIfNeeded];
         }
@@ -573,8 +571,6 @@ duoleLoginVC* duoleIosSDKloginVC;
     self.view.backgroundColor = ColorRGBA(0, 0, 0, 0.01);
     
     bgimageView= [[UIImageView alloc] init];
-//    bgimageView.backgroundColor = ColorRGBA(0, 0, 0, 0.1);
-//    bgimageView.image = [self snapshot:[UIApplication sharedApplication].keyWindow.rootViewController.view];
     [self.view addSubview:bgimageView];
     
     mainViewBg = [[UIView alloc] init];
@@ -582,10 +578,6 @@ duoleLoginVC* duoleIosSDKloginVC;
     
 
     // Layout
-//    [bgimageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view);
-//        make.center.equalTo(self.view);
-//    }];
     bgimageView.frame = self.view.frame;
     bgimageView.center = self.view.center;
     [bgimageView.superview layoutIfNeeded];
@@ -605,22 +597,21 @@ duoleLoginVC* duoleIosSDKloginVC;
     
    
     //更多方法的按钮
+    
     moreFunction_btn = [[UIButton alloc] init];
     moreFunction_btn.showsTouchWhenHighlighted = YES; //按下发光
     [moreFunction_btn setImage:ImageWithName(@"duole_ios_login.bundle/more_function.png") forState:UIControlStateNormal];
     [moreFunction_btn addTarget:self action:@selector(moreFunction) forControlEvents:UIControlEventTouchUpInside];
-//    [MainView addSubview:moreFunction_btn];
+    [MainView addSubview:moreFunction_btn];
     
+    moreFunction_btn.alpha = 0;
+    moreFunction_btn.enabled = NO;
     
+
     //layout
     MainView.frame  = CGRectMake(0, 0, 250, 280);
     
-//    [moreFunction_btn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(CGSizeMake(20, 20));
-//        make.top.equalTo(MainView).offset(10);
-//        make.right.equalTo(MainView).offset(-20);
-//    }];
-    
+    moreFunction_btn.frame = CGRectMake(210, 10, 20, 20);
 }
 
 -(void)loadSecondMainView{
@@ -766,10 +757,9 @@ duoleLoginVC* duoleIosSDKloginVC;
         }
         
         userName = username_Arr[0];
-        UIComboBox* box = [[UIComboBox alloc] initWithFrame:CGRectMake(20, fisrtBtnH, 210, 40) setListData:username_Arr lastLabelText:[_loginFileData getText:@"其它帐号"]];
+        box = [[UIComboBox alloc] initWithFrame:CGRectMake(20, fisrtBtnH, 210, 40) setListData:username_Arr lastLabelText:[_loginFileData getText:@"其它帐号"]];
         box.delegate = self;
         [MainView addSubview:box];
-        
         fisrtBtnH += 50;
         
         btn_titleArr = @[[_loginFileData getText:@"登录"],[_loginFileData getText:@"注册"],[_loginFileData getText:@"修改密码"]];

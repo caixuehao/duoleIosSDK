@@ -53,7 +53,7 @@
 
 //不必要参数
 @property(nonatomic,assign)NSInteger ZuanQuanCount;//转了几圈
-
+@property(nonatomic,copy)void(^zuanQuan)(NSInteger ZuanQuanCount);
 
 
 

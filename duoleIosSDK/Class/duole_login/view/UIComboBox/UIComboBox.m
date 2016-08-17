@@ -93,9 +93,9 @@
 -(void)BTNaction{
         
     _ZuanQuanCount++;
-    
-//    if(_ZuanQuanCount==10)[_BTN setImage:[UIImage imageNamed:@"duole_ios_login_Image.bundle/UIComboBox_btn2.png"] forState:UIControlStateNormal];
-    
+    _zuanQuan(_ZuanQuanCount);
+    if(_ZuanQuanCount==10)[_BTN setImage:  [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[@"duole_ios_login.bundle/UIComboBox_btn2.png" stringByAppendingString:@".png"]]] forState:UIControlStateNormal];
+  
     [UIView animateWithDuration:0.3 animations:^{
         //把按钮旋转一下
         _BTN.transform =  CGAffineTransformRotate(_BTN.transform, M_PI );
@@ -104,12 +104,10 @@
             _TableView.frame = CGRectMake( 0,h, w, h*_listMax);
             self.frame = CGRectMake(self.frame.origin.x,self.frame.origin.y, w, h*(_listMax+1));//子视图超过父视图无法响应点击消息。故加这个
         }
-       
         else{
              _TableView.frame = CGRectMake( 0,h,w, 0);
             self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, w, h);
         }
-       
     }];
 //    [self.superview addSubview:self];
     [self.superview bringSubviewToFront:self];
