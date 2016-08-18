@@ -128,6 +128,8 @@
 		FC67EC871D564F2A00F22001 /* RMStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FC67EC2A1D564F2A00F22001 /* RMStore.m */; };
 		FC749C861D63FED900993327 /* Eggs.h in Headers */ = {isa = PBXBuildFile; fileRef = FC749C841D63FED900993327 /* Eggs.h */; };
 		FC749C871D63FED900993327 /* Eggs.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C851D63FED900993327 /* Eggs.m */; };
+		FC749C961D64467100993327 /* playerVideoVC.h in Headers */ = {isa = PBXBuildFile; fileRef = FC749C941D64467100993327 /* playerVideoVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC749C971D64467100993327 /* playerVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C951D64467100993327 /* playerVideoVC.m */; };
 		FCA29FF51D5435C7000AF3C3 /* duole_iap.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FE01D5435C7000AF3C3 /* duole_iap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCA29FF61D5435C7000AF3C3 /* duole_iap.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA29FE11D5435C7000AF3C3 /* duole_iap.m */; };
 		FCA29FF71D5435C7000AF3C3 /* iapFileRW.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */; };
@@ -284,6 +286,8 @@
 		FC67EC2A1D564F2A00F22001 /* RMStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStore.m; sourceTree = "<group>"; };
 		FC749C841D63FED900993327 /* Eggs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Eggs.h; path = Eggs/Eggs.h; sourceTree = "<group>"; };
 		FC749C851D63FED900993327 /* Eggs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Eggs.m; path = Eggs/Eggs.m; sourceTree = "<group>"; };
+		FC749C941D64467100993327 /* playerVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = playerVideoVC.h; path = playerVideo/controller/playerVideoVC.h; sourceTree = "<group>"; };
+		FC749C951D64467100993327 /* playerVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = playerVideoVC.m; path = playerVideo/controller/playerVideoVC.m; sourceTree = "<group>"; };
 		FCA29FE01D5435C7000AF3C3 /* duole_iap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = duole_iap.h; sourceTree = "<group>"; };
 		FCA29FE11D5435C7000AF3C3 /* duole_iap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = duole_iap.m; sourceTree = "<group>"; };
 		FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapFileRW.h; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 				FC4705CB1D47379A009F0B62 /* duole_login */,
 				FCA29FDF1D5435C7000AF3C3 /* duole_iap */,
 				FCA29FEC1D5435C7000AF3C3 /* duole_log */,
+				FC749C921D6444C500993327 /* playerVideo */,
 				FCDBC0DB1D50772E007CA845 /* localNotification */,
 			);
 			path = Class;
@@ -656,6 +661,23 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		FC749C921D6444C500993327 /* playerVideo */ = {
+			isa = PBXGroup;
+			children = (
+				FC749C931D6444F100993327 /* controller */,
+			);
+			name = playerVideo;
+			sourceTree = "<group>";
+		};
+		FC749C931D6444F100993327 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC749C941D64467100993327 /* playerVideoVC.h */,
+				FC749C951D64467100993327 /* playerVideoVC.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
 		FCA29FDF1D5435C7000AF3C3 /* duole_iap */ = {
 			isa = PBXGroup;
 			children = (
@@ -734,6 +756,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC749C961D64467100993327 /* playerVideoVC.h in Headers */,
 				FC67EC751D564F2A00F22001 /* x509.h in Headers */,
 				FC67EC6F1D564F2A00F22001 /* tls1.h in Headers */,
 				FC67EC491D564F2A00F22001 /* err.h in Headers */,
@@ -951,6 +974,7 @@
 				FCA29FF61D5435C7000AF3C3 /* duole_iap.m in Sources */,
 				FC4705E91D475EF3009F0B62 /* CAIanimations.m in Sources */,
 				FC2DF8031D4B4B1C005160BD /* MBProgressHUD.m in Sources */,
+				FC749C971D64467100993327 /* playerVideoVC.m in Sources */,
 				FCCA4C921D503CD600E8ACE8 /* FateLoginRequest.m in Sources */,
 				FCCA4C8C1D4F4B8900E8ACE8 /* moreFunctionFileRW.m in Sources */,
 				FCA2A0041D5435C7000AF3C3 /* sendFile.m in Sources */,
