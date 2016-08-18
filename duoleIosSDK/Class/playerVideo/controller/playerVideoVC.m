@@ -70,22 +70,17 @@ playerVideoVC* playVideo;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView* image = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    image.image = [UIImage imageNamed:@"3123.jpg"];
-    [self.view addSubview:image];
     
     NSURL* url = [NSURL fileURLWithPath:_path];
     _player = [[AVPlayer alloc] initWithURL:url];
 
-    
-    
-    
+    [self LayoutIOS7];
     AVPlayerLayer* playerLaye = [AVPlayerLayer playerLayerWithPlayer:_player];
     playerLaye.frame = self.view.bounds;
-    [image.layer addSublayer:playerLaye];
-    [image setNeedsLayout];
+    [self.view.layer addSublayer:playerLaye];
+    [self.view.layer setNeedsLayout];
     [_player play];
-    [_player setRate:4];//播放速度
+    [_player setRate:1];//播放速度
 
     //播放完成通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(playEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
@@ -103,7 +98,18 @@ playerVideoVC* playVideo;
     [super didReceiveMemoryWarning];
 }
 
-
+// Layout IOS7
+-(void)LayoutIOS7{
+    //得到系统版本号
+    double version = [[UIDevice currentDevice].systemVersion doubleValue];
+    //如果系统版本号小于8.0f，即是7.X或以下,且还是横屏
+    if(version<8.0f&&(self.interfaceOrientation==UIDeviceOrientationLandscapeRight||self.interfaceOrientation==UIDeviceOrientationLandscapeLeft)){
+        //那么要得到的宽高要反过来
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width);
+        [self.view layoutSubviews];
+        [self.view layoutIfNeeded];
+    }
+}
 //屏幕旋转
 //- (void)statusBarOrientationChange:(NSNotification *)notification
 //{
