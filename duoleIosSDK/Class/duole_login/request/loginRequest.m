@@ -10,6 +10,7 @@
 #import "GameLoginRequest.h"
 #import "XJLLoginRequest.h"
 #import "FateLoginRequest.h"
+#import "CanTingLoginRequest.h"
 
 @interface loginRequest()<GameLoginRequestDelegate>
 
@@ -31,6 +32,9 @@
                 break;
             case FATELogin:
                 _gameLR = [[FateLoginRequest alloc] init];
+                break;
+            case CanTingLogin:
+                _gameLR = [[CanTingLoginRequest alloc] init];
                 break;
             default:
                 break;

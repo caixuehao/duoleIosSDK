@@ -11,7 +11,8 @@
 
 typedef NS_ENUM(NSInteger, LoginMode) {
     FATELogin,//fate登陆
-    XJLLogin//小精灵登陆
+    XJLLogin,//小精灵登陆
+    CanTingLogin//餐厅登陆
 };
 
 @interface duoleLoginVC : UIViewController

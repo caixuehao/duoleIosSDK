@@ -130,6 +130,8 @@
 		FC749C871D63FED900993327 /* Eggs.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C851D63FED900993327 /* Eggs.m */; };
 		FC749C961D64467100993327 /* playerVideoVC.h in Headers */ = {isa = PBXBuildFile; fileRef = FC749C941D64467100993327 /* playerVideoVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC749C971D64467100993327 /* playerVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC749C951D64467100993327 /* playerVideoVC.m */; };
+		FC92EEE81D6ADFC4007AE814 /* CanTingFateLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC92EEE61D6ADFC4007AE814 /* CanTingFateLoginRequest.m */; };
+		FC92EEE91D6ADFC4007AE814 /* CanTingLoginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = FC92EEE71D6ADFC4007AE814 /* CanTingLoginRequest.h */; };
 		FCA29FF51D5435C7000AF3C3 /* duole_iap.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FE01D5435C7000AF3C3 /* duole_iap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCA29FF61D5435C7000AF3C3 /* duole_iap.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA29FE11D5435C7000AF3C3 /* duole_iap.m */; };
 		FCA29FF71D5435C7000AF3C3 /* iapFileRW.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */; };
@@ -288,6 +290,8 @@
 		FC749C851D63FED900993327 /* Eggs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Eggs.m; path = Eggs/Eggs.m; sourceTree = "<group>"; };
 		FC749C941D64467100993327 /* playerVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = playerVideoVC.h; path = playerVideo/controller/playerVideoVC.h; sourceTree = "<group>"; };
 		FC749C951D64467100993327 /* playerVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = playerVideoVC.m; path = playerVideo/controller/playerVideoVC.m; sourceTree = "<group>"; };
+		FC92EEE61D6ADFC4007AE814 /* CanTingFateLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanTingFateLoginRequest.m; sourceTree = "<group>"; };
+		FC92EEE71D6ADFC4007AE814 /* CanTingLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanTingLoginRequest.h; sourceTree = "<group>"; };
 		FCA29FE01D5435C7000AF3C3 /* duole_iap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = duole_iap.h; sourceTree = "<group>"; };
 		FCA29FE11D5435C7000AF3C3 /* duole_iap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = duole_iap.m; sourceTree = "<group>"; };
 		FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapFileRW.h; sourceTree = "<group>"; };
@@ -474,6 +478,8 @@
 				FC2DF7E01D4861D5005160BD /* XJLLoginRequest.m */,
 				FCCA4C8F1D503CD600E8ACE8 /* FateLoginRequest.h */,
 				FCCA4C901D503CD600E8ACE8 /* FateLoginRequest.m */,
+				FC92EEE61D6ADFC4007AE814 /* CanTingFateLoginRequest.m */,
+				FC92EEE71D6ADFC4007AE814 /* CanTingLoginRequest.h */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -773,6 +779,7 @@
 				FC67EC741D564F2A00F22001 /* whrlpool.h in Headers */,
 				FC4705D21D47379A009F0B62 /* duoleLoginVC.h in Headers */,
 				FC67EC691D564F2A00F22001 /* ssl.h in Headers */,
+				FC92EEE91D6ADFC4007AE814 /* CanTingLoginRequest.h in Headers */,
 				FC67EC6B1D564F2A00F22001 /* ssl23.h in Headers */,
 				FC4705851D4713E2009F0B62 /* Macro.h in Headers */,
 				FC67EC431D564F2A00F22001 /* e_os2.h in Headers */,
@@ -974,6 +981,7 @@
 				FCA29FF61D5435C7000AF3C3 /* duole_iap.m in Sources */,
 				FC4705E91D475EF3009F0B62 /* CAIanimations.m in Sources */,
 				FC2DF8031D4B4B1C005160BD /* MBProgressHUD.m in Sources */,
+				FC92EEE81D6ADFC4007AE814 /* CanTingFateLoginRequest.m in Sources */,
 				FC749C971D64467100993327 /* playerVideoVC.m in Sources */,
 				FCCA4C921D503CD600E8ACE8 /* FateLoginRequest.m in Sources */,
 				FCCA4C8C1D4F4B8900E8ACE8 /* moreFunctionFileRW.m in Sources */,
