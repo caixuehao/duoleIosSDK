@@ -67,7 +67,7 @@ static duole_iap* duole_iap_share;
     //加日志
     NSString* str = @"初始化支付。初始化信息:";
     for (NSString* key in userInfoDIC) {
-        if ([key isEqualToString:@"key1"] == NO) {
+        if([key rangeOfString:@"key" options:NSCaseInsensitiveSearch].length>0){
             str = [str stringByAppendingString:[NSString stringWithFormat:@" %@:%@ ",key,[userInfoDIC objectForKey:key]]];
         }
     }
@@ -107,10 +107,12 @@ static duole_iap* duole_iap_share;
         if (_PaySuccessBlock)  _PaySuccessBlock(dic);
     }];//发送收据
     
+    NSLog(@"%@",ProductList);
     [duole_log WriteLog:[NSString stringWithFormat:@"＝＝＝开始购买商品：%@＝＝＝",[ProductList objectForKey:commodityID]]];
     
+    
     [userInfo addEntriesFromDictionary:data];//添加参数
-    NSLog(@"%@",userInfo);
+    //NSLog(@"%@",userInfo);
     
     [self showHub];
     
@@ -118,6 +120,7 @@ static duole_iap* duole_iap_share;
     NSString* ProtocolInfo = [sendReceipt getProtocolInfo:userInfo URL:_URL];
     if (ProtocolInfo.length == 0) {
         [self showMessage:@"缺少参数"];
+        [self hideHub];
         return;
     }
     

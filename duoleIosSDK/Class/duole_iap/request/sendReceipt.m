@@ -134,7 +134,10 @@
 //合成传入交易的协议信息
 +(NSString*)getProtocolInfo:(NSDictionary*)userInfo URL:(NSString*)url{
     //检测网址
-    if(url.length == 0)return @"";
+    if(url.length == 0){
+        NSLog(@"缺少服务器地址");
+        return @"";
+    }
     //检测userInfo
     iapFileRW* fileRw = [[iapFileRW alloc] init];
     NSDictionary* Parameters = [fileRw getProtocolParameters];
