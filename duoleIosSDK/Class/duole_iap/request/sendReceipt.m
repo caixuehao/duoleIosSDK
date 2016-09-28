@@ -29,54 +29,53 @@
     
     //组合参数
     NSString* urlStr = [protocolInfo objectForKey:@"URL"];
-    urlStr = [urlStr stringByAppendingString:@"?"];
+    NSString* argsStr = @"";
     
     NSDictionary* Parameters = [fileRw getProtocolParameters];
     for (NSString* key in Parameters) {
-        urlStr = [urlStr stringByAppendingString:key];
-        urlStr = [urlStr stringByAppendingString:@"="];
+        argsStr = [argsStr stringByAppendingString:key];
+        argsStr = [argsStr stringByAppendingString:@"="];
         
         NSDictionary* dic = [Parameters objectForKey:key];
         switch ([[dic objectForKey:@"type"] intValue]) {
             case 1:
                 //普通参数
-                urlStr = [urlStr stringByAppendingString:[protocolInfo objectForKey:key]];
+                argsStr = [argsStr stringByAppendingString:[protocolInfo objectForKey:key]];
                 break;
             case 2:
                 //收据
-                urlStr = [urlStr stringByAppendingString:receipt];
+                argsStr = [argsStr stringByAppendingString:receipt];
                 break;
             case 3:
                 //验证需要合成的key
-                urlStr = [urlStr stringByAppendingString:[sendReceipt getSign:[dic objectForKey:@"data"] STR:receipt userInfo:protocolInfo]];
+                argsStr = [argsStr stringByAppendingString:[sendReceipt getSign:[dic objectForKey:@"data"] STR:receipt userInfo:protocolInfo]];
                 break;
             case 4:
-                urlStr = [urlStr stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"]];
+                argsStr = [argsStr stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"]];
                 break;
             case 5:
                 //静态数据
-                urlStr = [urlStr stringByAppendingString:[dic objectForKey:@"data"]];
+                argsStr = [argsStr stringByAppendingString:[dic objectForKey:@"data"]];
                 break;
             default:
                 break;
         }
-        urlStr = [urlStr stringByAppendingString:@"&"];
+        argsStr = [argsStr stringByAppendingString:@"&"];
     }
-    urlStr =  [urlStr substringToIndex:urlStr.length-1];
+    argsStr =  [argsStr substringToIndex:argsStr.length-1];
     
     //合成请求
-    urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]; //转一下格式
     NSLog(@"%@",urlStr);
+    NSLog(@"%@",argsStr);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     request.HTTPMethod = @"POST";//请求方法
-    request.timeoutInterval=5.0;//设置请求超时为5秒
-    
+    request.timeoutInterval = 10.0;//设置请求超时为5秒
+    request.HTTPBody = [argsStr dataUsingEncoding:NSUTF8StringEncoding];
     
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == NULL) {
             NSDictionary* dic =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
             if (error == NULL) {
-                
                 
                 //start---
                 int ret = [[dic objectForKey:@"ret"] intValue];
@@ -93,11 +92,9 @@
                     [duole_log WriteLog:[NSString stringWithFormat:@"收据验证错误:%@",[dic objectForKey:@"msg"]]];
                     [[iapFileRW share] removeReceipt];//删除收据
                 }
-                
                 [sendReceipt start:successBlock];
                 //end---
-                
-                
+
             }else{
                 NSString* str = [NSString stringWithFormat:@"服务器返回数据错误：%@", [error localizedDescription]];
                 [duole_log WriteLog:str];
@@ -106,10 +103,7 @@
             NSLog(@"++++++++%@++++++++",[error localizedDescription]);
             //付款失败
             [duole_log WriteLog:[NSString stringWithFormat:@"请求数据失败：%@",[error localizedDescription]]];
-            
         }
-        
-        
     }] resume];
 }
 
