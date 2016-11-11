@@ -101,6 +101,7 @@
                 NSString* str = [NSString stringWithFormat:@"服务器返回数据错误：%@", [error localizedDescription]];
                 [[duole_iap share] showMessage:[NSString stringWithFormat:@"ERROR:%@",[error localizedDescription]]];
                 [duole_log WriteLog:str];
+                [sendReceipt start:successBlock];
             }
         }else{
             NSLog(@"++++++++%@++++++++",[error localizedDescription]);

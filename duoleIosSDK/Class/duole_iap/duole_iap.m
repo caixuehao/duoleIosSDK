@@ -61,7 +61,7 @@ static duole_iap* duole_iap_share;
  *  @param userInfoDIC  用户信息
  */
 -(void)InitUserInfo:(NSDictionary*) userInfoDIC{
-    NSLog(@"支付2.1.0 增加发送失败的提示");
+    NSLog(@"支付2.1.1 增加发送失败重新发送");
     
     userInfo = [[NSMutableDictionary alloc] initWithDictionary:userInfoDIC];
     //加日志
