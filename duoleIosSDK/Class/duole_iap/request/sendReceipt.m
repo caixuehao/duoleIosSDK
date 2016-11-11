@@ -10,7 +10,7 @@
 #import "iapFileRW.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "duole_log.h"
-
+#import "duole_iap.h"
 
 @implementation sendReceipt
 //开始发送订单
@@ -69,7 +69,7 @@
     NSLog(@"%@",argsStr);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     request.HTTPMethod = @"POST";//请求方法
-    request.timeoutInterval = 10.0;//设置请求超时为5秒
+    request.timeoutInterval = 30.0;//设置请求超时为5秒
     request.HTTPBody = [argsStr dataUsingEncoding:NSUTF8StringEncoding];
     
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -87,9 +87,11 @@
                 }else if (ret == -2 && ret == -3){
                     //付款失败，参数错误，这两种情况可能是参数组合错误或者其他网络错误，需要重新发送。
                     [duole_log WriteLog:[NSString stringWithFormat:@"收据验证错误:%@",[dic objectForKey:@"msg"]]];
+                    [[duole_iap share] showMessage:[NSString stringWithFormat:@"ERROR:%@",[dic objectForKey:@"msg"]]];
                 }else{
                     //付款失败
                     [duole_log WriteLog:[NSString stringWithFormat:@"收据验证错误:%@",[dic objectForKey:@"msg"]]];
+                    [[duole_iap share] showMessage:[NSString stringWithFormat:@"ERROR:%@",[dic objectForKey:@"msg"]]];
                     [[iapFileRW share] removeReceipt];//删除收据
                 }
                 [sendReceipt start:successBlock];
@@ -97,12 +99,14 @@
 
             }else{
                 NSString* str = [NSString stringWithFormat:@"服务器返回数据错误：%@", [error localizedDescription]];
+                [[duole_iap share] showMessage:[NSString stringWithFormat:@"ERROR:%@",[error localizedDescription]]];
                 [duole_log WriteLog:str];
             }
         }else{
             NSLog(@"++++++++%@++++++++",[error localizedDescription]);
             //付款失败
             [duole_log WriteLog:[NSString stringWithFormat:@"请求数据失败：%@",[error localizedDescription]]];
+            [[duole_iap share] showMessage:[NSString stringWithFormat:@"ERROR:%@",[error localizedDescription]]];
         }
     }] resume];
 }

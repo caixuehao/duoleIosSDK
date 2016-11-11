@@ -61,7 +61,7 @@ static duole_iap* duole_iap_share;
  *  @param userInfoDIC  用户信息
  */
 -(void)InitUserInfo:(NSDictionary*) userInfoDIC{
-    NSLog(@"支付2.0.1 更改发送收据代码");
+    NSLog(@"支付2.1.0 增加发送失败的提示");
     
     userInfo = [[NSMutableDictionary alloc] initWithDictionary:userInfoDIC];
     //加日志
@@ -77,7 +77,7 @@ static duole_iap* duole_iap_share;
     //查看玩家是否有掉单
     if ([fileRw getReceipts].count > 0) {
         NSString* str = [NSString stringWithFormat:[fileRw getMessageStr:@"发现有%lu订单为发送失败，正在补单..."],[fileRw getReceipts].count];
-//        [self showMessage:str];
+        [self showMessage:str];
         [duole_log WriteLog:str];
         
         //发送收据

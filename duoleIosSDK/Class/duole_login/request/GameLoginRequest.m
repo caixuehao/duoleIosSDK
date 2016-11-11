@@ -27,10 +27,16 @@
 
 //请求合成
 -(NSMutableURLRequest*)getRequestWithURL:(NSString*)url{
-    NSLog(@"%@",url);
+    
+//    NSRange range = [url rangeOfString:@"?"];
+//    NSString* uslStr = [url substringToIndex:range.location];
+//    NSString* argsStr = [url substringFromIndex:range.location+range.length];
+//    NSLog(@"%@",url);
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     request.HTTPMethod = @"POST";//请求方法
-    request.timeoutInterval=5.0;//设置请求超时为5秒
+    //request.timeoutInterval=5.0;//设置请求超时为5秒
+   // request.HTTPBody = [argsStr dataUsingEncoding:NSUTF8StringEncoding];
     return request;
 }
 @end

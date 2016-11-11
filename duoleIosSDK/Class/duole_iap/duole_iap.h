@@ -73,5 +73,6 @@
  */
 //-(void)resumedPay;
 
+-(void)showMessage:(NSString*)message;
 
 @end
