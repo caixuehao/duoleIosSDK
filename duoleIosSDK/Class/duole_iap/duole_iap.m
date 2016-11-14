@@ -185,11 +185,14 @@ static duole_iap* duole_iap_share;
     
     SKPaymentTransaction *transaction = notification.rm_transaction;
     [fileRw wiretReceipt:transaction];
-    
+   
     //发送收据
     [sendReceipt start:^(NSDictionary *dic) {
         if (_PaySuccessBlock)  _PaySuccessBlock(dic);
+    
     }];
+    
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 //支付失败
 - (void)storePaymentTransactionFailed:(NSNotification*)notification
@@ -200,6 +203,8 @@ static duole_iap* duole_iap_share;
     [duole_log WriteLog:str];
     
      if(_PayFailBlock)_PayFailBlock(@{});
+
+    [[SKPaymentQueue defaultQueue] finishTransaction:notification.rm_transaction];
 }
 
 // iOS 8+ only
