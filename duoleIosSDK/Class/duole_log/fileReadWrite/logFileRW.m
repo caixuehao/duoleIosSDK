@@ -60,7 +60,7 @@
     log = [timeStr stringByAppendingString:log];
     
     
-    NSMutableArray* arr = [self ReadLog];\
+    NSMutableArray* arr = [self ReadLog];
     //删除多余的的纪录防止记录太多
     if (arr.count>=MAX_LOG) {
          [arr removeObjectsInRange:NSMakeRange(0, arr.count - MAX_LOG)];

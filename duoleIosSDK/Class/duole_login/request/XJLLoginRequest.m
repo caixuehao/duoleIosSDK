@@ -93,6 +93,7 @@
     NSString *sign = [[NSString alloc] initWithFormat:@"%@%@%@%@%@",@"38",account,password,@"1",SignKey9158];
     sign = [self md5:sign];
     NSString *requestAddress =  [[NSString alloc] initWithFormat:@"%@?appID=38&memberName=%@&password=%@&memberType=1&sign=%@",Login_URL9158,account,password,sign] ;
+    NSLog(@"%@",requestAddress);
     [[[NSURLSession sharedSession] dataTaskWithRequest:[self getRequestWithURL:requestAddress] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == nil) {
             NSDictionary* dic =  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];

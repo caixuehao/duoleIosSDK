@@ -63,6 +63,7 @@ static duole_iap* duole_iap_share;
 -(void)InitUserInfo:(NSDictionary*) userInfoDIC{
     NSLog(@"支付2.1.1 增加发送失败重新发送");
     
+    
     userInfo = [[NSMutableDictionary alloc] initWithDictionary:userInfoDIC];
     //加日志
     NSString* str = @"初始化支付。初始化信息:";
@@ -131,7 +132,7 @@ static duole_iap* duole_iap_share;
             [self PayStart:commodityID Data:data];
         } failure:^(NSError *error) {
             [self hideHub];
-        }];;
+        }];
         return;
     }
     
@@ -248,6 +249,22 @@ static duole_iap* duole_iap_share;
         [_hud hideAnimated:YES];
         _hud = nil;
     }
+}
+
+//获取pay_type
+-(int)getPayType{
+    [[iapFileRW share] downloadPayType];
+    NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    // response.suggestedFilename ： 建议使用的文件名，一般跟服务器端的文件名一致
+    NSString *file = [caches stringByAppendingPathComponent:@"pay_type.txt"];
+    
+    NSString* content = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"NSString类方法读取的内容是：\n%@",content);
+    NSString *typeStr = [content substringWithRange:NSMakeRange(9, 1)];
+    
+    int type = [typeStr intValue];
+    NSLog(@"%i",type);
+    return type;
 }
 
 @end

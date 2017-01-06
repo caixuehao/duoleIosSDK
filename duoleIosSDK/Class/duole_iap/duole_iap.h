@@ -67,6 +67,10 @@
 
 
 
+//获取pay_type
+-(int)getPayType;
+
+
 
 /**
  *  恢复订单(没啥用)

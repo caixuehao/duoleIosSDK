@@ -18,6 +18,7 @@
     return [[iapFileRW alloc] init];
 }
 
+
 -(instancetype)init{
     self = [super init];
     if (self) {
@@ -39,6 +40,10 @@
 //读取默认的服务器地址
 -(NSString*)getURL{
      return [[plistDataDIC objectForKey:@"Protocol"] objectForKey:@"URL"];
+}
+//获取pay_type_url
+-(NSString* )getPayTypeURL{
+    return [[plistDataDIC objectForKey:@"Protocol"] objectForKey:@"pay_type_url"];
 }
 
 //读取请求参数
@@ -78,9 +83,24 @@
 //把收据写入本地
 -(void)wiretReceipt:(SKPaymentTransaction*)transaction{
     NSMutableArray* arr = [self getReceipts];
+
+//    if([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0){
+//        //ios7.0之后新的收据获取方式
+//        NSURL *url = [[NSBundle mainBundle] appStoreReceiptURL];
+//        NSString *receipt = [[NSData dataWithContentsOfURL:url] base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+////            NSString *receipt = [[NSData dataWithContentsOfURL:url] base64Encoding];
+//        NSLog(@"appStoreReceiptURL===%@",receipt);
+//    }else{
+//        
+//    }
     
     NSString* protocolInfo = transaction.payment.applicationUsername;
     NSString* receipt = [transaction.transactionReceipt base64Encoding];
+    NSLog(@"transactionReceipt===%@",receipt);
+    
+    
+    
+    
     NSDictionary* dic = @{@"receipt":receipt,
                           @"protocolInfo":protocolInfo};
     [arr addObject:dic];
@@ -98,6 +118,31 @@
     [arr removeObjectAtIndex:0];
     [arr writeToFile:[self getPath] atomically:YES];
     [duole_log WriteLog:@"删除收据"];
+}
+
+//下载pay_type文件
+-(void)downloadPayType{
+    NSURL *url = [NSURL URLWithString:[self getPayTypeURL]];
+    // 得到session对象
+    NSURLSession* session = [NSURLSession sharedSession];
+    
+    // 创建任务
+    NSURLSessionDownloadTask* downloadTask = [session downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        // location : 临时文件的路径（下载好的文件）
+        
+        NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        // response.suggestedFilename ： 建议使用的文件名，一般跟服务器端的文件名一致
+        NSString *file = [caches stringByAppendingPathComponent:response.suggestedFilename];
+        NSLog(@"%@",response.suggestedFilename);
+        // 将临时文件剪切或者复制Caches文件夹
+        NSFileManager *mgr = [NSFileManager defaultManager];
+        
+        // AtPath : 剪切前的文件路径
+        // ToPath : 剪切后的文件路径
+        [mgr moveItemAtPath:location.path toPath:file error:nil];
+    }];
+    // 开始任务
+    [downloadTask resume];
 }
 
 @end

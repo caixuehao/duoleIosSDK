@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
-@interface iapFileRW : NSObject
+@interface iapFileRW : NSObject<NSURLSessionDelegate>
 
 +(instancetype)share;
 
@@ -33,4 +33,10 @@
 
 //删除第一个收据
 -(void)removeReceipt;
+
+//获取pay_type_url
+-(NSString* )getPayTypeURL;
+
+//下载pay_type文件
+-(void)downloadPayType;
 @end

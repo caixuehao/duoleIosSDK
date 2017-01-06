@@ -85,11 +85,11 @@
                     if (successBlock)successBlock(protocolInfo);
                     
                 }else if (ret == -2 && ret == -3){
-                    //付款失败，参数错误，这两种情况可能是参数组合错误或者其他网络错误，需要重新发送。
+                    //验证失败，参数错误，这两种情况可能是参数组合错误或者其他网络错误，需要重新发送。
                     [duole_log WriteLog:[NSString stringWithFormat:@"收据验证错误:%@",[dic objectForKey:@"msg"]]];
                     [[duole_iap share] showMessage:[NSString stringWithFormat:@"ERROR:%@",[dic objectForKey:@"msg"]]];
                 }else{
-                    //付款失败
+                    //验证失败
                     [duole_log WriteLog:[NSString stringWithFormat:@"收据验证错误:%@",[dic objectForKey:@"msg"]]];
                     [[duole_iap share] showMessage:[NSString stringWithFormat:@"ERROR:%@",[dic objectForKey:@"msg"]]];
                     [[iapFileRW share] removeReceipt];//删除收据
@@ -100,12 +100,13 @@
             }else{
                 NSString* str = [NSString stringWithFormat:@"服务器返回数据错误：%@", [error localizedDescription]];
                 [[duole_iap share] showMessage:[NSString stringWithFormat:@"ERROR:%@",[error localizedDescription]]];
+
                 [duole_log WriteLog:str];
                 [sendReceipt start:successBlock];
             }
         }else{
             NSLog(@"++++++++%@++++++++",[error localizedDescription]);
-            //付款失败
+            //请求数据失败
             [duole_log WriteLog:[NSString stringWithFormat:@"请求数据失败：%@",[error localizedDescription]]];
             [[duole_iap share] showMessage:[NSString stringWithFormat:@"ERROR:%@",[error localizedDescription]]];
         }
