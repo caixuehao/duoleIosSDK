@@ -253,10 +253,17 @@ static duole_iap* duole_iap_share;
 
 //获取pay_type
 -(int)getPayType{
+//    [self deletePayType];
     [[iapFileRW share] downloadPayType];
+    sleep(1);
     NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     // response.suggestedFilename ： 建议使用的文件名，一般跟服务器端的文件名一致
     NSString *file = [caches stringByAppendingPathComponent:@"pay_type.txt"];
+    
+    BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:file];
+    if (blHave) {
+        NSLog(@"此文件存在");
+    }
     
     NSString* content = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"NSString类方法读取的内容是：\n%@",content);
@@ -264,7 +271,30 @@ static duole_iap* duole_iap_share;
     
     int type = [typeStr intValue];
     NSLog(@"%i",type);
+    [self deletePayType];
     return type;
 }
-
+//删除pay_type文件
+-(void)deletePayType{
+    NSFileManager* fileManager=[NSFileManager defaultManager];
+    NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    // response.suggestedFilename ： 建议使用的文件名，一般跟服务器端的文件名一致
+    NSString *file = [caches stringByAppendingPathComponent:@"pay_type.txt"];
+    
+    //文件名
+    BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:file];
+    if (!blHave) {
+        NSLog(@"此文件不存在");
+        return ;
+    }else {
+        NSLog(@"此文件存在");
+        BOOL blDele= [fileManager removeItemAtPath:file error:nil];
+        if (blDele) {
+            NSLog(@"文件删除成功");
+        }else {
+            NSLog(@"文件删除失败");
+        }
+        
+    }
+}
 @end
