@@ -10,6 +10,7 @@
 
 
 typedef NS_ENUM(NSInteger, LoginMode) {
+    FJFATELogin,//风际渠道包登录
     FATELogin,//fate登陆
     XJLLogin,//小精灵登陆
     CanTingLogin//餐厅登陆

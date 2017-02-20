@@ -89,6 +89,8 @@
     [self writeUserInfo:userinfo];
 }
 
+
+
 // 删除用户信息  按照名字
 -(void)removeOBjectAtName:(NSString*)name{
     NSMutableDictionary* userinfo = [self readUserInfo];
@@ -103,6 +105,7 @@
 }
 
 
+
 //得到完整的文件名
 -(NSString*)getPath{
     //检查路径(本可以放到readUserInfo，因为读去用户信息会用到很多次，故在这里检查。)
@@ -112,6 +115,7 @@
     
     return path;
 }
+
 
 
 //初始化用户信息（只有安装后的第一次进入）
@@ -160,6 +164,7 @@
     NSMutableDictionary* duole_UserInfo = [[NSMutableDictionary alloc] initWithContentsOfFile:[self getPath]];
     return duole_UserInfo;
 }
+
 
 
 //从钥匙串中读取用户名和密码

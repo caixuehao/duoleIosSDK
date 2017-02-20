@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C3FFDCD1E5AD8630022A714 /* UIAlertView+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C3FFDCB1E5AD8630022A714 /* UIAlertView+Block.h */; };
+		7C3FFDCE1E5AD8630022A714 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3FFDCC1E5AD8630022A714 /* UIAlertView+Block.m */; };
+		7C5D57921E4C564D00BFCBE5 /* FJFateLoginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C5D57901E4C564D00BFCBE5 /* FJFateLoginRequest.h */; };
+		7C5D57931E4C564D00BFCBE5 /* FJFateLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D57911E4C564D00BFCBE5 /* FJFateLoginRequest.m */; };
+		7C6A2BCB1E5186E7005D6489 /* FJThirdPay.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6A2BC91E5186E7005D6489 /* FJThirdPay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C6A2BCC1E5186E7005D6489 /* FJThirdPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A2BCA1E5186E7005D6489 /* FJThirdPay.m */; };
+		7C6A2BCF1E518703005D6489 /* FJThirdPayFileRW.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6A2BCD1E518703005D6489 /* FJThirdPayFileRW.h */; };
+		7C6A2BD01E518703005D6489 /* FJThirdPayFileRW.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A2BCE1E518703005D6489 /* FJThirdPayFileRW.m */; };
+		7C6A2BD31E518730005D6489 /* FJThirdPaySendReceipt.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6A2BD11E518730005D6489 /* FJThirdPaySendReceipt.h */; };
+		7C6A2BD41E518730005D6489 /* FJThirdPaySendReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A2BD21E518730005D6489 /* FJThirdPaySendReceipt.m */; };
 		FC2DF7DC1D484F06005160BD /* loginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF7DA1D484F06005160BD /* loginRequest.h */; };
 		FC2DF7DD1D484F06005160BD /* loginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF7DB1D484F06005160BD /* loginRequest.m */; };
 		FC2DF7E11D4861D5005160BD /* XJLLoginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2DF7DF1D4861D5005160BD /* XJLLoginRequest.h */; };
@@ -165,6 +175,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C14BF491E543642005E0245 /* FJThirdPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FJThirdPay.h; path = duoleIosSDK/Class/duole_iap/FJThirdPay.h; sourceTree = "<group>"; };
+		7C3FFDCB1E5AD8630022A714 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
+		7C3FFDCC1E5AD8630022A714 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		7C5D57901E4C564D00BFCBE5 /* FJFateLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJFateLoginRequest.h; sourceTree = "<group>"; };
+		7C5D57911E4C564D00BFCBE5 /* FJFateLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJFateLoginRequest.m; sourceTree = "<group>"; };
+		7C6A2BC91E5186E7005D6489 /* FJThirdPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJThirdPay.h; sourceTree = "<group>"; };
+		7C6A2BCA1E5186E7005D6489 /* FJThirdPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJThirdPay.m; sourceTree = "<group>"; };
+		7C6A2BCD1E518703005D6489 /* FJThirdPayFileRW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJThirdPayFileRW.h; sourceTree = "<group>"; };
+		7C6A2BCE1E518703005D6489 /* FJThirdPayFileRW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJThirdPayFileRW.m; sourceTree = "<group>"; };
+		7C6A2BD11E518730005D6489 /* FJThirdPaySendReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJThirdPaySendReceipt.h; sourceTree = "<group>"; };
+		7C6A2BD21E518730005D6489 /* FJThirdPaySendReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJThirdPaySendReceipt.m; sourceTree = "<group>"; };
 		FC2DF7DA1D484F06005160BD /* loginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginRequest.h; sourceTree = "<group>"; };
 		FC2DF7DB1D484F06005160BD /* loginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginRequest.m; sourceTree = "<group>"; };
 		FC2DF7DF1D4861D5005160BD /* XJLLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJLLoginRequest.h; sourceTree = "<group>"; };
@@ -335,6 +356,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C3FFDCA1E5AD8630022A714 /* UIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				7C3FFDCB1E5AD8630022A714 /* UIAlertView+Block.h */,
+				7C3FFDCC1E5AD8630022A714 /* UIAlertView+Block.m */,
+			);
+			name = UIAlertView;
+			path = Category/UIAlertView;
+			sourceTree = "<group>";
+		};
 		FC2DF7EC1D48BDE2005160BD /* JCAlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +396,7 @@
 		FC4705591D4713D0009F0B62 = {
 			isa = PBXGroup;
 			children = (
+				7C14BF491E543642005E0245 /* FJThirdPay.h */,
 				FC4705651D4713D0009F0B62 /* duoleIosSDK */,
 				FC4705711D4713D0009F0B62 /* duoleIosSDKTests */,
 				FC4705641D4713D0009F0B62 /* Products */,
@@ -403,7 +435,7 @@
 		FC47057D1D4713E2009F0B62 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				FC749C8C1D643EC400993327 /* Category */,
+				7C3FFDCA1E5AD8630022A714 /* UIAlertView */,
 				FC4705811D4713E2009F0B62 /* Macro */,
 				FC4705CB1D47379A009F0B62 /* duole_login */,
 				FCA29FDF1D5435C7000AF3C3 /* duole_iap */,
@@ -480,6 +512,8 @@
 				FCCA4C901D503CD600E8ACE8 /* FateLoginRequest.m */,
 				FC92EEE61D6ADFC4007AE814 /* CanTingFateLoginRequest.m */,
 				FC92EEE71D6ADFC4007AE814 /* CanTingLoginRequest.h */,
+				7C5D57901E4C564D00BFCBE5 /* FJFateLoginRequest.h */,
+				7C5D57911E4C564D00BFCBE5 /* FJFateLoginRequest.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -660,13 +694,6 @@
 			name = Eggs;
 			sourceTree = "<group>";
 		};
-		FC749C8C1D643EC400993327 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
 		FC749C921D6444C500993327 /* playerVideo */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +717,8 @@
 				FC67EBC41D56473900F22001 /* duole_iap.md */,
 				FCA29FE01D5435C7000AF3C3 /* duole_iap.h */,
 				FCA29FE11D5435C7000AF3C3 /* duole_iap.m */,
+				7C6A2BC91E5186E7005D6489 /* FJThirdPay.h */,
+				7C6A2BCA1E5186E7005D6489 /* FJThirdPay.m */,
 				FCA29FE21D5435C7000AF3C3 /* fileReadWrite */,
 				FCA29FE71D5435C7000AF3C3 /* request */,
 			);
@@ -702,6 +731,8 @@
 			children = (
 				FCA29FE31D5435C7000AF3C3 /* iapFileRW.h */,
 				FCA29FE41D5435C7000AF3C3 /* iapFileRW.m */,
+				7C6A2BCD1E518703005D6489 /* FJThirdPayFileRW.h */,
+				7C6A2BCE1E518703005D6489 /* FJThirdPayFileRW.m */,
 			);
 			path = fileReadWrite;
 			sourceTree = "<group>";
@@ -711,6 +742,8 @@
 			children = (
 				FCA29FEA1D5435C7000AF3C3 /* sendReceipt.h */,
 				FCA29FEB1D5435C7000AF3C3 /* sendReceipt.m */,
+				7C6A2BD11E518730005D6489 /* FJThirdPaySendReceipt.h */,
+				7C6A2BD21E518730005D6489 /* FJThirdPaySendReceipt.m */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -768,6 +801,7 @@
 				FC67EC491D564F2A00F22001 /* err.h in Headers */,
 				FCA29FFF1D5435C7000AF3C3 /* duole_log.h in Headers */,
 				FCA29FF51D5435C7000AF3C3 /* duole_iap.h in Headers */,
+				7C6A2BCB1E5186E7005D6489 /* FJThirdPay.h in Headers */,
 				FC67EC2E1D564F2A00F22001 /* asn1.h in Headers */,
 				FC67EC801D564F2A00F22001 /* RMStoreTransaction.h in Headers */,
 				FC67EC681D564F2A00F22001 /* srtp.h in Headers */,
@@ -809,12 +843,14 @@
 				FC67EC631D564F2A00F22001 /* rsa.h in Headers */,
 				FC2DF7DC1D484F06005160BD /* loginRequest.h in Headers */,
 				FC67EC411D564F2A00F22001 /* dso.h in Headers */,
+				7C3FFDCD1E5AD8630022A714 /* UIAlertView+Block.h in Headers */,
 				FC67EC3A1D564F2A00F22001 /* conf.h in Headers */,
 				FC67EC3F1D564F2A00F22001 /* dh.h in Headers */,
 				FC67EC7A1D564F2A00F22001 /* RMAppReceipt.h in Headers */,
 				FC67EC321D564F2A00F22001 /* blowfish.h in Headers */,
 				FC67EC641D564F2A00F22001 /* safestack.h in Headers */,
 				FC67EC471D564F2A00F22001 /* ecdsa.h in Headers */,
+				7C6A2BCF1E518703005D6489 /* FJThirdPayFileRW.h in Headers */,
 				FC67EC5A1D564F2A00F22001 /* pem.h in Headers */,
 				FC67EC2F1D564F2A00F22001 /* asn1_mac.h in Headers */,
 				FC67EC591D564F2A00F22001 /* ossl_typ.h in Headers */,
@@ -853,6 +889,7 @@
 				FC67EC3E1D564F2A00F22001 /* des_old.h in Headers */,
 				FC67EC531D564F2A00F22001 /* modes.h in Headers */,
 				FCCA4C8B1D4F4B8900E8ACE8 /* moreFunctionFileRW.h in Headers */,
+				7C6A2BD31E518730005D6489 /* FJThirdPaySendReceipt.h in Headers */,
 				FCA2A0031D5435C7000AF3C3 /* sendFile.h in Headers */,
 				FC67EC6A1D564F2A00F22001 /* ssl2.h in Headers */,
 				FC67EC341D564F2A00F22001 /* buffer.h in Headers */,
@@ -869,6 +906,7 @@
 				FC67EC571D564F2A00F22001 /* opensslconf.h in Headers */,
 				FC67EC771D564F2A00F22001 /* x509v3.h in Headers */,
 				FC67EC541D564F2A00F22001 /* obj_mac.h in Headers */,
+				7C5D57921E4C564D00BFCBE5 /* FJFateLoginRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,6 +1014,7 @@
 				FCA29FF81D5435C7000AF3C3 /* iapFileRW.m in Sources */,
 				FC4705DC1D473B7D009F0B62 /* KeychainItemWrapper.m in Sources */,
 				FC2DF7E81D489868005160BD /* GameLoginRequest.m in Sources */,
+				7C6A2BD01E518703005D6489 /* FJThirdPayFileRW.m in Sources */,
 				FC67EC811D564F2A00F22001 /* RMStoreTransaction.m in Sources */,
 				FC2DF7E21D4861D5005160BD /* XJLLoginRequest.m in Sources */,
 				FCA29FF61D5435C7000AF3C3 /* duole_iap.m in Sources */,
@@ -989,16 +1028,20 @@
 				FC4705D31D47379A009F0B62 /* duoleLoginVC.m in Sources */,
 				FC67EC851D564F2A00F22001 /* RMStoreUserDefaultsPersistence.m in Sources */,
 				FCA2A0091D5437CA000AF3C3 /* logFileRW.m in Sources */,
+				7C6A2BD41E518730005D6489 /* FJThirdPaySendReceipt.m in Sources */,
 				FC67EBC51D56473900F22001 /* duole_iap.md in Sources */,
 				FC4705D71D4737C5009F0B62 /* loginFileReadWrite.m in Sources */,
 				FC67EC7B1D564F2A00F22001 /* RMAppReceipt.m in Sources */,
+				7C5D57931E4C564D00BFCBE5 /* FJFateLoginRequest.m in Sources */,
 				FCA29FFE1D5435C7000AF3C3 /* sendReceipt.m in Sources */,
 				FC2DF7DD1D484F06005160BD /* loginRequest.m in Sources */,
 				FC2DF7F21D48BDE2005160BD /* JCAlertView.m in Sources */,
 				FC67EC7D1D564F2A00F22001 /* RMStoreAppReceiptVerifier.m in Sources */,
 				FCA2A0001D5435C7000AF3C3 /* duole_log.m in Sources */,
+				7C6A2BCC1E5186E7005D6489 /* FJThirdPay.m in Sources */,
 				FCCA4C871D4F366D00E8ACE8 /* moreFunctionVC.m in Sources */,
 				FC67EC871D564F2A00F22001 /* RMStore.m in Sources */,
+				7C3FFDCE1E5AD8630022A714 /* UIAlertView+Block.m in Sources */,
 				FC2DF7F71D48BFE9005160BD /* UIComboBox.m in Sources */,
 				FC67EC7F1D564F2A00F22001 /* RMStoreKeychainPersistence.m in Sources */,
 			);

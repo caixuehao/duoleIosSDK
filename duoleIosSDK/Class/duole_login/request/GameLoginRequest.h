@@ -26,8 +26,14 @@
 
 @property(nonatomic,assign)NSString* str;
 
+//hmacSha1加密
+- (NSString*)hmacSha1:(NSString *)key data:(NSString *)data;
+
 //md5加密
 - (NSString *)md5:(NSString *)str;
+
+//sha1加密
+- (NSString*)sha1:(NSString *)str;
 
 //请求合成
 -(NSMutableURLRequest*)getRequestWithURL:(NSString*)url;

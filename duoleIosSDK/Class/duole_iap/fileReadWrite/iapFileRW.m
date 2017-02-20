@@ -23,7 +23,7 @@
     self = [super init];
     if (self) {
         NSString* path = [[NSBundle mainBundle] pathForResource:@"duole_iap" ofType:@"plist"];
-        plistDataDIC = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+        plistDataDIC = [[[NSMutableDictionary alloc] initWithContentsOfFile:path] objectForKey:@"DuoleIap"];
     }
     return self;
 }
@@ -39,7 +39,7 @@
 
 //读取默认的服务器地址
 -(NSString*)getURL{
-     return [[plistDataDIC objectForKey:@"Protocol"] objectForKey:@"URL"];
+    return [[plistDataDIC objectForKey:@"Protocol"] objectForKey:@"URL"];
 }
 //获取pay_type_url
 -(NSString* )getPayTypeURL{
@@ -139,6 +139,7 @@
         
         // AtPath : 剪切前的文件路径
         // ToPath : 剪切后的文件路径
+
         [mgr moveItemAtPath:location.path toPath:file error:nil];
     }];
     // 开始任务

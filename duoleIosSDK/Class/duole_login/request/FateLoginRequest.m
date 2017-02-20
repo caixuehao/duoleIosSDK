@@ -201,7 +201,7 @@
 
 //修改密码   账号  旧密码 新密码
 -(void)ChangPassword:(NSString*)account oldPassword:(NSString*)oldPassword  newPassword:(NSString*)newPassword{
-    NSString* sign = [self md5:[NSString stringWithFormat:@"%@%@%@%@",account,oldPassword,newPassword,loginKey]];
+    NSString* sign = [self sha1:[NSString stringWithFormat:@"%@%@%@%@",account,oldPassword,newPassword,loginKey]];
     NSString *URL_str =      [[NSString alloc] initWithFormat:@"%@change_passwd.php?user_name=%@&old_passwd=%@&new_passwd=%@&cp_id=%lu&game_id=%lu&sign=%@",loginURL,account,oldPassword,newPassword,cpId,gameId,sign] ;
     [[[NSURLSession sharedSession] dataTaskWithRequest:[self getRequestWithURL:URL_str] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == nil) {

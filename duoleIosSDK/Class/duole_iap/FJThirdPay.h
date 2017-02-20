@@ -1,14 +1,14 @@
 //
-//  duole_iap.h
+//  FJThirdPay.h
 //  duoleIosSDK
 //
-//  Created by cxh on 16/8/2.
-//  Copyright © 2016年 cxh. All rights reserved.
+//  Created by duole on 17/2/13.
+//  Copyright © 2017年 cxh. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface duole_iap : NSObject
+@interface FJThirdPay : NSObject
 
 /**
  *  购买成功－》收据发送成功后的回调
@@ -18,15 +18,12 @@
  *  购买失败回调
  */
 @property(nonatomic,copy)void(^PayFailBlock)(NSDictionary* dic);
-
 /**
  *  服务器地址
  */
 @property(nonatomic,strong)NSString* URL;
 
 +(instancetype)share;
-
-
 
 
 /**
@@ -55,30 +52,6 @@
  *  @param fail        失败返回
  */
 -(void)PayStart:(NSString*)commodityID Data:(NSDictionary*)data success:(void(^)(NSDictionary* dic))success fail:(void(^)(NSDictionary* dic)) fail;
-
-
-
-/**
- *  把收据写入本地
- *
- *  @param transaction 收据
- */
-//-(void)WiretReceipt:(id)transaction;
-
-
-
-//获取pay_type
--(int)getPayType;
-
-//下载pay_type文件
--(void)downloadPayType;
-
-/**
- *  恢复订单(没啥用)
- */
-//-(void)resumedPay;
-
--(void)showMessage:(NSString*)message;
 
 
 

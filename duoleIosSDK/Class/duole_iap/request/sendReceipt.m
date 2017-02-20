@@ -12,6 +12,9 @@
 #import "duole_log.h"
 #import "duole_iap.h"
 
+
+
+
 @implementation sendReceipt
 //开始发送订单
 +(void)start:(void(^)(NSDictionary* dic))successBlock{

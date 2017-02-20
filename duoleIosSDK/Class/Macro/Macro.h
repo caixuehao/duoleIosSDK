@@ -14,8 +14,10 @@
 
 #define Duole_IOSSDK_Catalog @"duoleIosSdk"//用户信息文件夹名字
 #define Duole_IOSSDK_userinfo_PATH  @"duoleIosSdk/userinfo.plist" //用户信息存取地址
+#define Duole_IOSSDK_FJuserinfo_PATH  @"duoleIosSdk/FJuserinfo.plist" //风际用户信息存取地址
 #define Duole_IOSSDK_localNotification_PATH  @"duoleIosSdk/localNotification.plist" //本地推送存取地址
 #define Duole_IOSSDK_iapReceipt_PATH @"duoleIosSdk/iapReceipt.plist"//付款收据临时存放地址
+#define Duole_IOSSDK_orderId_PATH @"duoleIosSdk/orderId.plist"//风际订单号临时存放地址
 #define Duole_IOSSDK_log_PATH @"duoleIosSdk/Log.plist"//日志存放地址
 
 

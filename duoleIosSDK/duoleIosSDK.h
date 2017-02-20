@@ -14,6 +14,7 @@
 #import "duole_iap.h"
 #import "duole_log.h"
 #import "playerVideoVC.h"
+#import "FJThirdPay.h"
 
 //! Project version number for duoleIOSSDK.
 FOUNDATION_EXPORT double duoleIOSSDKVersionNumber;

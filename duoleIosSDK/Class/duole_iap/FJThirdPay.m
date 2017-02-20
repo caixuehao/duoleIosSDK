@@ -1,59 +1,60 @@
 //
-//  duole_iap.m
+//  FJThirdPay.m
 //  duoleIosSDK
 //
-//  Created by cxh on 16/8/2.
-//  Copyright © 2016年 cxh. All rights reserved.
+//  Created by duole on 17/2/13.
+//  Copyright © 2017年 cxh. All rights reserved.
 //
 
-
-#import "RMStore.h"
+#import "FJThirdPay.h"
+#import "FJThirdPayFileRW.h"
 #import "MBProgressHUD.h"
-
 #import "Macro.h"
-
-#import "duole_iap.h"
 #import "duole_log.h"
-#import "iapFileRW.h"
-#import "sendReceipt.h"
+#import "FJThirdPaySendReceipt.h"
+#import "RMStore.h"
 
-
-static duole_iap* duole_iap_share;
-@interface duole_iap()<RMStoreObserver>
+static FJThirdPay* FJThirdPay_share;
+@interface FJThirdPay()<RMStoreObserver>
 
 @end
 
-@implementation duole_iap{
+@implementation FJThirdPay{
     NSMutableDictionary *userInfo;//存放用户数据
     NSDictionary *message_dic;//存放消息映射字典
     NSDictionary *ProductList;//商品映射字典
     NSDictionary* Protocol_main_dic;//存放协议的字典
     
     BOOL initBl;//商品是否初始化成功.
-    iapFileRW *fileRw;
+    FJThirdPayFileRW *fileRw;
     MBProgressHUD *_hud;//load....
+    NSString *transId;
 }
+
+
 +(instancetype)share{
-    if (duole_iap_share == NULL) {
-        duole_iap_share = [[duole_iap alloc] init];
+    if (FJThirdPay_share == NULL) {
+        FJThirdPay_share = [[FJThirdPay alloc] init];
     }
-    return duole_iap_share;
+    return FJThirdPay_share;
 }
 -(instancetype)init{
     self =[super init];
     if (self) {
         initBl = NO;
-        fileRw = [[iapFileRW alloc] init];
+        fileRw = [[FJThirdPayFileRW alloc] init];
         
         ProductList = [fileRw getProducts];
         _URL = [fileRw getURL];
         [[RMStore defaultStore] addStoreObserver:self];
+
     }
     return self;
 }
 -(void)dealloc{
     NSLog(@"%s",__FUNCTION__);
 }
+
 
 /**
  *  初始化
@@ -62,7 +63,7 @@ static duole_iap* duole_iap_share;
  */
 -(void)InitUserInfo:(NSDictionary*) userInfoDIC{
     NSLog(@"支付2.1.1 增加发送失败重新发送");
-
+    
     
     userInfo = [[NSMutableDictionary alloc] initWithDictionary:userInfoDIC];
     //加日志
@@ -82,7 +83,7 @@ static duole_iap* duole_iap_share;
         [duole_log WriteLog:str];
         
         //发送收据
-        [sendReceipt start:^(NSDictionary *dic) {
+        [[FJThirdPaySendReceipt share] start:^(NSDictionary *dic) {
             if (_PaySuccessBlock)  _PaySuccessBlock(dic);
         }];//发送收据
     }
@@ -90,7 +91,7 @@ static duole_iap* duole_iap_share;
     
     //请求商品
     [[RMStore defaultStore] requestProducts:[NSSet setWithArray:[ProductList allValues]] success:nil failure:nil];
- 
+    
     
 }
 
@@ -104,11 +105,11 @@ static duole_iap* duole_iap_share;
 }
 
 -(void)PayStart:(NSString*)commodityID Data:(NSDictionary*)data{
-    [sendReceipt start:^(NSDictionary *dic) {
+    [[FJThirdPaySendReceipt share] start:^(NSDictionary *dic) {
         if (_PaySuccessBlock)  _PaySuccessBlock(dic);
     }];//发送收据
     
-    NSLog(@"ProductList==%@",ProductList);
+    NSLog(@"%@",ProductList);
     [duole_log WriteLog:[NSString stringWithFormat:@"＝＝＝开始购买商品：%@＝＝＝",[ProductList objectForKey:commodityID]]];
     
     
@@ -118,12 +119,14 @@ static duole_iap* duole_iap_share;
     [self showHub];
     
     //合成传入订单的数据
-    NSString* ProtocolInfo = [sendReceipt getProtocolInfo:userInfo URL:_URL];
+    NSString* ProtocolInfo = [FJThirdPaySendReceipt getProtocolInfo:userInfo URL:_URL];
     if (ProtocolInfo.length == 0) {
         [self showMessage:@"缺少参数"];
         [self hideHub];
         return;
     }
+    
+    
     
     //判断是否重新请求商品
     if(initBl == NO){
@@ -136,11 +139,15 @@ static duole_iap* duole_iap_share;
         return;
     }
     
+    [[FJThirdPayFileRW share] getOrderID:userInfo];
+    
+    
     //开始购买
     [[RMStore defaultStore] addPayment:[ProductList objectForKey:commodityID] user:ProtocolInfo success:^(SKPaymentTransaction *transaction) {
+        NSLog(@"%@",transaction);
         [self hideHub];
     } failure:^(SKPaymentTransaction *transaction, NSError *error) {
-        [self hideHub];       
+        [self hideHub];
     }];
     //
     
@@ -165,7 +172,7 @@ static duole_iap* duole_iap_share;
 //商品请求成功
 - (void)storeProductsRequestFinished:(NSNotification*)notification
 {
-//    NSArray *products = notification.rm_products;
+    //    NSArray *products = notification.rm_products;
     NSArray *invalidProductIdentifiers = notification.rm_invalidProductIdentifiers;
     [duole_log WriteLog:@"商品加载成功"];
     initBl = YES;
@@ -181,19 +188,20 @@ static duole_iap* duole_iap_share;
 //交易成功
 - (void)storePaymentTransactionFinished:(NSNotification*)notification
 {
-//    NSString *productIdentifier = notification.rm_productIdentifier;
+    //    NSString *productIdentifier = notification.rm_productIdentifier;
     [duole_log WriteLog:@"付款成功"];
     
     SKPaymentTransaction *transaction = notification.rm_transaction;
     [fileRw wiretReceipt:transaction];
-   
-    //发送收据
-    [sendReceipt start:^(NSDictionary *dic) {
+    
+    [[FJThirdPaySendReceipt share] start:^(NSDictionary *dic) {
         if (_PaySuccessBlock)  _PaySuccessBlock(dic);
-    
+        
     }];
-    
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+    
+    
+    
 }
 //支付失败
 - (void)storePaymentTransactionFailed:(NSNotification*)notification
@@ -203,8 +211,8 @@ static duole_iap* duole_iap_share;
     [self showMessage:str];
     [duole_log WriteLog:str];
     
-     if(_PayFailBlock)_PayFailBlock(@{});
-
+    if(_PayFailBlock)_PayFailBlock(@{});
+    
     [[SKPaymentQueue defaultQueue] finishTransaction:notification.rm_transaction];
 }
 
@@ -212,8 +220,8 @@ static duole_iap* duole_iap_share;
 //延期付款
 - (void)storePaymentTransactionDeferred:(NSNotification*)notification
 {
-//    NSString *productIdentifier = notification.rm_productIdentifier;
-//    SKPaymentTransaction *transaction = notification.rm_transaction;
+    //    NSString *productIdentifier = notification.rm_productIdentifier;
+    //    SKPaymentTransaction *transaction = notification.rm_transaction;
     [duole_log WriteLog:@"延期付款"];
     NSLog(@"延期支付交易");
 }
@@ -251,102 +259,6 @@ static duole_iap* duole_iap_share;
     }
 }
 
-//获取pay_type
--(int)getPayType{
-//    [self deletePayType];
-//    [self downloadPayType];
-    
-    NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    // response.suggestedFilename ： 建议使用的文件名，一般跟服务器端的文件名一致
-    NSString *file = [caches stringByAppendingPathComponent:@"pay_type.txt"];
-    
-    BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:file];
-    if (blHave) {
-        NSLog(@"此文件存在");
-    }else{
-        NSLog(@"此文件不存在");
-//        [self downloadPayType];
-        file = [caches stringByAppendingPathComponent:@"pay_type.txt"];
-        
-    }
-    
-    NSString* content = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"NSString类方法读取的内容是：\n%@",content);
-    NSString *typeStr = [content substringWithRange:NSMakeRange(9, 1)];
-    
-    int type = [typeStr intValue];
-    NSLog(@"%i",type);
-//    [self deletePayType];
-    return type;
-}
-//删除pay_type文件
--(void)deletePayType{
-    NSFileManager* fileManager=[NSFileManager defaultManager];
-    NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    // response.suggestedFilename ： 建议使用的文件名，一般跟服务器端的文件名一致
-    NSString *file = [caches stringByAppendingPathComponent:@"pay_type.txt"];
-    
-    //文件名
-    BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:file];
-    if (!blHave) {
-        NSLog(@"此文件不存在");
-        return ;
-    }else {
-        NSLog(@"此文件存在");
-        BOOL blDele= [fileManager removeItemAtPath:file error:nil];
-        if (blDele) {
-            NSLog(@"文件删除成功");
-        }else {
-            NSLog(@"文件删除失败");
-        }
-        
-    }
-}
 
-//下载pay_type文件
--(void)downloadPayType{
-    [self deletePayType];
-    NSURL *url = [NSURL URLWithString:[[iapFileRW share] getPayTypeURL]];
-    // 得到session对象
-    NSURLSession* session = [NSURLSession sharedSession];
-    // 创建请求
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    // 创建任务
-    NSURLSessionDownloadTask* downloadTask = [session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (!error) {
-            // 下载成功
-            // 注意 location是下载后的临时保存路径, 需要将它移动到需要保存的位置
-            NSError *saveError;
-            // 创建一个自定义存储路径
-            NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-            NSString *savePath = [cachePath stringByAppendingPathComponent:response.suggestedFilename];
-            NSURL *saveURL = [NSURL fileURLWithPath:savePath];
-            
-            // 文件复制到cache路径中
-            [[NSFileManager defaultManager] copyItemAtURL:location toURL:saveURL error:&saveError];
-            if (!saveError) {
-                NSLog(@"保存成功");
-            } else {
-                NSLog(@"error is %@", saveError.localizedDescription);
-            }
-        } else {
-            NSLog(@"error is : %@", error.localizedDescription);
-        }
-    }];
-    
-//    NSURLSessionDownloadTask* downloadTask = [session downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        // location : 临时文件的路径（下载好的文件）
-//        NSLog(@"location==%@,response==%@",location,response);
-//        NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-//        // response.suggestedFilename ： 建议使用的文件名，一般跟服务器端的文件名一致
-//        NSString *file = [caches stringByAppendingPathComponent:response.suggestedFilename];
-//        // 将临时文件剪切或者复制Caches文件夹
-//        NSFileManager *mgr = [NSFileManager defaultManager];
-//        // AtPath : 剪切前的文件路径   ToPath : 剪切后的文件路径
-//        [mgr moveItemAtPath:location.path toPath:file error:nil];
-//    }];
-    
-    // 开始任务
-    [downloadTask resume];
-}
+
 @end

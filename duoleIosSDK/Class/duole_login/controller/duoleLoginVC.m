@@ -277,7 +277,7 @@ duoleLoginVC* duoleIosSDKloginVC;
 
 //快速登录
 -(void)FastLogin{
-    [self ShowHub];
+//    [self ShowHub];
     [_loginRequest QuickLogin];
 }
 //有密码直接登陆

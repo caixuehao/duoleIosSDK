@@ -35,4 +35,6 @@
 // 删除用户信息  按照名字
 -(void)removeOBjectAtName:(NSString*)name;
 
+
+
 @end
