@@ -56,13 +56,14 @@
 
 //快速登录
 -(void)QuickLogin{
-    if(_mode == FJFATELogin){
-        NSLog(@"风际渠道包登录");
-//        [[Toast shareToast] makeText:@"目前不支持游客登录,请注册登录" duration:1];
-    }else{
-        [_gameLR QuickLogin];
-    }
-    
+//    if(_mode == FJFATELogin){
+//        NSLog(@"风际渠道包登录");
+////        [[Toast shareToast] makeText:@"目前不支持游客登录,请注册登录" duration:1];
+//        
+//    }else{
+//        [_gameLR QuickLogin];
+//    }
+    [_gameLR QuickLogin];
 }
 //登陆       帐号 密码 是否是新账号
 -(void)Login:(NSString*)account Password:(NSString*)password isNewAccount:(BOOL)isNewAccount{
