@@ -38,9 +38,10 @@ static FJThirdPaySendReceipt *FJThirdPaySendReceipt_share;
 
 -(void)start:(void(^)(NSDictionary* dic))successBlock
 {
-    NSDictionary *protocolDic = [[FJThirdPayFileRW share] getProtocol];
+    FJThirdPayFileRW* fileRw = [[FJThirdPayFileRW alloc] init];
+    NSDictionary *protocolDic = [fileRw getProtocol];
     
-    NSMutableArray* Receipts = [[FJThirdPayFileRW share] getReceipts];
+    NSMutableArray* Receipts = [fileRw getReceipts];
     if (Receipts.count == 0) return;
     
     
@@ -98,6 +99,87 @@ static FJThirdPaySendReceipt *FJThirdPaySendReceipt_share;
     }] resume];
     
 }
+
+-(void )getOrderID:(NSDictionary*)dic
+{
+    FJThirdPayFileRW* fileRw = [[FJThirdPayFileRW alloc] init];
+    NSLog(@"dic==%@",dic);
+    //开始发送
+    NSLog(@"开始发送数据生成订单号");
+    NSString *roleName = [dic objectForKey:@"roleName"];
+    
+    NSString *openID = [[NSString alloc] init];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *plistPath1 = [paths objectAtIndex:0];
+    NSString *path=[plistPath1 stringByAppendingPathComponent:@"duoleIosSdk/FJuserinfo.plist"];
+    NSMutableArray *userArr = [[NSMutableArray alloc] initWithContentsOfFile:path];
+    for (NSMutableDictionary *dic in userArr) {
+        if ([[dic objectForKey:@"account"] isEqualToString:roleName]) {
+            openID = [dic objectForKey:@"open_id"];
+        }
+    }
+    //苹果支付:ios 谷歌官方支付 :google 第三方支付:other
+    NSString *pay_type = [[fileRw getProtocol] objectForKey:@"payType"];
+    //发送地址
+    NSString *payURL = [fileRw getURL];
+    //服务器ID
+    NSString *sid = [dic objectForKey:@"serverId"];
+    //账号 ID 或 open_id
+    NSString *uid = openID;
+    //角色 ID 或者 char_id 如果没有角色传 uid
+    NSString *cid = [dic objectForKey:@"roleId"];
+    //渠道 ID
+    NSString *channelid = [[fileRw getProtocol] objectForKey:@"channelid"];
+    //支付类型 CNY 人民币 USD 美元
+    NSString *currency = @"CNY";
+    //商品标示id
+    NSString *productid = [dic objectForKey:@"productId"];
+    //appID
+    NSString *appid = [[fileRw getProtocol] objectForKey:@"appid"];
+    //秘钥public_key
+    NSString *key = [[fileRw getProtocol] objectForKey:@"key"];
+    //支付金币
+    int totalmoney = [[dic objectForKey:@"money"] intValue];
+    
+    NSString* sign = [self hmacSha1:key data:[NSString stringWithFormat:@"pay/get_order&appid=%@&channelid=%@&cid=%@&client_type=1&currency=%@&pay_type=%@&productid=%@&sid=%@&totalmoney=%i&%@",
+                                              appid,channelid,cid,currency,pay_type,productid,sid,totalmoney,key]];
+    NSString *bodyStr = [[NSString alloc] initWithFormat:@"appid=%@&channelid=%@&cid=%@&client_type=1&currency=%@&pay_type=%@&productid=%@&sid=%@&sign=%@&totalmoney=%i",
+                         appid,channelid,cid,currency,pay_type,productid,sid,sign,totalmoney];
+    NSString *URL_str = [payURL stringByAppendingString:@"pay/get_order"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL_str]];
+    request.HTTPMethod = @"POST";//请求方法
+    request.timeoutInterval = 30.0;//设置请求超时为5秒
+    request.HTTPBody = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error == nil) {
+            NSDictionary* dic =  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+            if (error == nil) {
+                int ret = [[dic objectForKey:@"rs"] intValue];
+                if (ret == 0){
+                    NSLog(@"订单号获取成功");
+                    [duole_log WriteLog:@"订单号获取成功"];
+                    NSString *trans_id = [dic objectForKey:@"trans_id"];
+                    
+                    NSMutableArray *arr = [fileRw getTransId];
+                    [arr insertObject:trans_id atIndex:0];
+                    [arr writeToFile:[fileRw getOrderIdPath] atomically:YES];
+                    [duole_log WriteLog:@"保存风际订单号"];
+                }
+                else{
+                    NSString *msg = [dic objectForKey:@"msg"];
+                    NSLog(@"订单号获取失败");
+                    [duole_log WriteLog:[NSString stringWithFormat:@"订单号获取失败,错误说明：%@",msg]];
+                    return;
+                }
+            }
+        }
+    }] resume];
+    
+    
+}
+
 
 //合成传入交易的协议信息
 +(NSString*)getProtocolInfo:(NSDictionary*)userInfo URL:(NSString*)url{
@@ -187,7 +269,8 @@ static FJThirdPaySendReceipt *FJThirdPaySendReceipt_share;
  *
  *  @return JSON字符串
  */
-+ (NSString*)dictionaryToJson:(NSDictionary *)dic{
++ (NSString*)dictionaryToJson:(NSDictionary *)dic
+{
     NSError *parseError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];

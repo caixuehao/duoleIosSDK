@@ -17,7 +17,7 @@
 
 -(NSDictionary *)getProtocol;
 
-//获取订单号地址
+//获取风际的订单号地址
 -(NSString*)getOrderIdPath;
 
 //读取默认的服务器地址
@@ -32,8 +32,8 @@
 //获取商品ID
 -(NSDictionary*)getProducts;
 
-//获取订单id
--(void)getOrderID:(NSDictionary*)dic;
+//获取风际的订单id保存数组
+-(NSMutableArray*)getTransId;
 
 //获取收据
 -(NSMutableArray*)getReceipts;

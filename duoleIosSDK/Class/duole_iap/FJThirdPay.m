@@ -139,7 +139,7 @@ static FJThirdPay* FJThirdPay_share;
         return;
     }
     
-    [[FJThirdPayFileRW share] getOrderID:userInfo];
+    [[FJThirdPaySendReceipt share] getOrderID:userInfo];
     
     
     //开始购买

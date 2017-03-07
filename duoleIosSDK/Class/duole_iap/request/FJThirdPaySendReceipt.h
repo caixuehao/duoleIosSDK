@@ -33,6 +33,8 @@ const IOS_RETURN_FAIL = 1111; //ios 验证失败
 -(void)start:(void(^)(NSDictionary* dic))successBlock;
 
 
+-(void )getOrderID:(NSDictionary*)dic;
+
 //合成传入交易的协议信息
 +(NSString*)getProtocolInfo:(NSDictionary*)userInfo URL:(NSString*)url;
 @end
