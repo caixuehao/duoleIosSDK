@@ -189,8 +189,7 @@ static duole_iap* duole_iap_share;
    
     //发送收据
     [sendReceipt start:^(NSDictionary *dic) {
-        if (_PaySuccessBlock)  _PaySuccessBlock(dic);
-    
+        if (_PaySuccessBlock)  _PaySuccessBlock(dic);    
     }];
     
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
@@ -224,14 +223,17 @@ static duole_iap* duole_iap_share;
     if(message.length == 0)return;
     if([UIApplication sharedApplication].keyWindow==NULL)return;
     
-    MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-    
-    // Set the annular determinate mode to show task progress.
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = message;
-    // Move to bottm center.
-    hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
-    [hud hideAnimated:YES afterDelay:3.f];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+        
+        // Set the annular determinate mode to show task progress.
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = message;
+        // Move to bottm center.
+        hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
+        [hud hideAnimated:YES afterDelay:3.f];
+    }];
+
 }
 
 //显示loading

@@ -131,7 +131,8 @@
     
     
     //看看钥匙串里有没有补充的。
-    NSMutableArray* user_arr = [self readUserInfo_keychain];
+//    NSMutableArray* user_arr = [self readUserInfo_keychain];
+    NSMutableArray* user_arr = [[NSMutableArray alloc] init];
     //读取以前小精灵中可能存在的账号密码
     [user_arr addObjectsFromArray:[self readUserInfo_oldSDK]];
     
@@ -169,6 +170,7 @@
 
 //从钥匙串中读取用户名和密码
 -(NSMutableArray*)readUserInfo_keychain{
+  
     //读取钥匙串中的信息
     KeychainItemWrapper *keychain=[[KeychainItemWrapper alloc] initWithIdentifier:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"] accessGroup:nil];// 自定义
     NSString* NAME = [keychain objectForKey:(id)kSecAttrAccount];
@@ -270,7 +272,7 @@
     BOOL bl = [userifno writeToFile:[self getPath] atomically:YES];
     if (bl == NO) NSLog(@"文件写入失败");
     //把用户信息写入keychain
-    [self writeUserInfo_keychain];
+//    [self writeUserInfo_keychain];
 }
 
 
@@ -297,7 +299,7 @@
     [keychain setObject:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"] forKey:(id)kSecAttrService];
     [keychain setObject:NAME forKey:(id)kSecAttrAccount];
     [keychain setObject:PASS forKey:(id)kSecValueData];
-    
+ 
     
     
 }
