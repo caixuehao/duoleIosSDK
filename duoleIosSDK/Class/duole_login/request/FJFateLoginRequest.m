@@ -9,6 +9,22 @@
 #import "FJFateLoginRequest.h"
 #import "loginFileReadWrite.h"
 
+const NSString *SUCCESS = @"成功";//0 成功
+const NSString *FAIL = @"失败";  //1 失败
+const NSString *PARAM_FAIL = @"请求参数错误失败"; //3 请求参数错误失败
+const NSString *NO_CHANGE = @"数据没有更新"; //10 数据没有更新
+const NSString *USERR_NAME_DUPLICATE = @"账号名已存在"; //1000账号存在
+const NSString *USERR_NAME_CREAT_FAIL = @"账号创建失败"; //1001账号创建失败
+const NSString *USERR_NAME_NOT_EXIST = @"账号不存在"; //1002账号不存在
+const NSString *PASS_WORD_ERROR = @"密码错误"; //1003密码错误
+const NSString *PASS_WORD_TOO_LONG = @"密码太长"; //1004密码太长
+const NSString *SAFE_PASS_EXIST = @"二级密保存在"; //1005二级密保存在
+const NSString *SAFE_PASS_NOT_EXIST = @"二级密保不存在"; //1006二级密保不存在
+const NSString *SAFE_PASS_ERROR = @"二级密保错误"; //1007二级密保错误
+const NSString *USER_INFO_PHON_EXIST = @"该账号已经绑定手机号码"; //1008改账号已经绑定手机号码
+const NSString *LOGIN_CHECK_ERROR = @"登陆认证授权失效"; //2001登陆认证授权失效!
+const NSString *SEND_CODE_TIME_ERROR = @"短信验证码发动太频繁"; //3001短信验证码发动太频繁
+const NSString *SEND_CODE_ERROR = @"短信验证码错误"; //3002短信验证码错误
 
 
 @implementation FJFateLoginRequest{
@@ -87,8 +103,51 @@
                     //调用登陆
                     [self Login:account Password:password isNewAccount:YES];
                 }
+                else if (ret == 3){
+                    [self.delegate loginFail:PARAM_FAIL];
+                }
+                else if (ret == 10){
+                    [self.delegate loginFail:NO_CHANGE];
+                }
+                else if (ret == 1000){
+                    [self.delegate loginFail:USERR_NAME_DUPLICATE];
+                }
+                else if (ret == 1001){
+                    [self.delegate loginFail:USERR_NAME_CREAT_FAIL];
+                }
+                else if (ret == 1002){
+                    [self.delegate loginFail:USERR_NAME_NOT_EXIST];
+                }
+                else if (ret == 1003){
+                    [self.delegate loginFail:PASS_WORD_ERROR];
+                }
+                else if (ret == 1004){
+                    [self.delegate loginFail:PASS_WORD_TOO_LONG];
+                }
+                else if (ret == 1005){
+                    [self.delegate loginFail:SAFE_PASS_EXIST];
+                }
+                else if (ret == 1006){
+                    [self.delegate loginFail:SAFE_PASS_NOT_EXIST];
+                }
+                else if (ret == 1007){
+                    [self.delegate loginFail:SAFE_PASS_ERROR];
+                }
+                else if (ret == 1008){
+                    [self.delegate loginFail:USER_INFO_PHON_EXIST];
+                }
+                else if (ret == 2001){
+                    [self.delegate loginFail:LOGIN_CHECK_ERROR];
+                }
+                else if (ret == 3001){
+                    [self.delegate loginFail:SEND_CODE_TIME_ERROR];
+                }
+                else if (ret == 3002){
+                    [self.delegate loginFail:SEND_CODE_ERROR];
+                }
+
                 else{
-                    NSString *msg = [dic objectForKey:@"msg"];
+                    NSString *msg = [NSString stringWithFormat:@"%@,recode=%i",[dic objectForKey:@"msg"],ret];
                     [self.delegate loginFail:msg];
                     return;
                 }
@@ -207,8 +266,50 @@
                     if (bl == NO) NSLog(@"文件写入失败");
                     
                 }
+                else if (ret == 3){
+                    [self.delegate loginFail:PARAM_FAIL];
+                }
+                else if (ret == 10){
+                    [self.delegate loginFail:NO_CHANGE];
+                }
+                else if (ret == 1000){
+                    [self.delegate loginFail:USERR_NAME_DUPLICATE];
+                }
+                else if (ret == 1001){
+                    [self.delegate loginFail:USERR_NAME_CREAT_FAIL];
+                }
+                else if (ret == 1002){
+                    [self.delegate loginFail:USERR_NAME_NOT_EXIST];
+                }
+                else if (ret == 1003){
+                    [self.delegate loginFail:PASS_WORD_ERROR];
+                }
+                else if (ret == 1004){
+                    [self.delegate loginFail:PASS_WORD_TOO_LONG];
+                }
+                else if (ret == 1005){
+                    [self.delegate loginFail:SAFE_PASS_EXIST];
+                }
+                else if (ret == 1006){
+                    [self.delegate loginFail:SAFE_PASS_NOT_EXIST];
+                }
+                else if (ret == 1007){
+                    [self.delegate loginFail:SAFE_PASS_ERROR];
+                }
+                else if (ret == 1008){
+                    [self.delegate loginFail:USER_INFO_PHON_EXIST];
+                }
+                else if (ret == 2001){
+                    [self.delegate loginFail:LOGIN_CHECK_ERROR];
+                }
+                else if (ret == 3001){
+                    [self.delegate loginFail:SEND_CODE_TIME_ERROR];
+                }
+                else if (ret == 3002){
+                    [self.delegate loginFail:SEND_CODE_ERROR];
+                }
                 else{
-                    NSString *msg = [dic objectForKey:@"msg"];
+                    NSString *msg = [NSString stringWithFormat:@"%@,recode=%i",[dic objectForKey:@"msg"],ret];
                     [self.delegate loginFail:msg];return;
                 }
             }
@@ -240,8 +341,51 @@
                     //调用登陆
                     [self Login:account Password:password isNewAccount:YES];
                 }
+                else if (ret == 3){
+                    [self.delegate loginFail:PARAM_FAIL];
+                }
+                else if (ret == 10){
+                    [self.delegate loginFail:NO_CHANGE];
+                }
+                else if (ret == 1000){
+                    [self.delegate loginFail:USERR_NAME_DUPLICATE];
+                }
+                else if (ret == 1001){
+                    [self.delegate loginFail:USERR_NAME_CREAT_FAIL];
+                }
+                else if (ret == 1002){
+                    [self.delegate loginFail:USERR_NAME_NOT_EXIST];
+                }
+                else if (ret == 1003){
+                    [self.delegate loginFail:PASS_WORD_ERROR];
+                }
+                else if (ret == 1004){
+                    [self.delegate loginFail:PASS_WORD_TOO_LONG];
+                }
+                else if (ret == 1005){
+                    [self.delegate loginFail:SAFE_PASS_EXIST];
+                }
+                else if (ret == 1006){
+                    [self.delegate loginFail:SAFE_PASS_NOT_EXIST];
+                }
+                else if (ret == 1007){
+                    [self.delegate loginFail:SAFE_PASS_ERROR];
+                }
+                else if (ret == 1008){
+                    [self.delegate loginFail:USER_INFO_PHON_EXIST];
+                }
+                else if (ret == 2001){
+                    [self.delegate loginFail:LOGIN_CHECK_ERROR];
+                }
+                else if (ret == 3001){
+                    [self.delegate loginFail:SEND_CODE_TIME_ERROR];
+                }
+                else if (ret == 3002){
+                    [self.delegate loginFail:SEND_CODE_ERROR];
+                }
+
                 else{
-                    NSString *msg = [dic objectForKey:@"msg"];
+                    NSString *msg = [NSString stringWithFormat:@"%@,recode=%i",[dic objectForKey:@"msg"],ret];
                     [self.delegate loginFail:msg];
                     return;
                 }
@@ -288,8 +432,51 @@
                     //调用登陆
                     [self Login:account Password:password isNewAccount:YES];
                 }
+                else if (ret == 3){
+                    [self.delegate loginFail:PARAM_FAIL];
+                }
+                else if (ret == 10){
+                    [self.delegate loginFail:NO_CHANGE];
+                }
+                else if (ret == 1000){
+                    [self.delegate loginFail:USERR_NAME_DUPLICATE];
+                }
+                else if (ret == 1001){
+                    [self.delegate loginFail:USERR_NAME_CREAT_FAIL];
+                }
+                else if (ret == 1002){
+                    [self.delegate loginFail:USERR_NAME_NOT_EXIST];
+                }
+                else if (ret == 1003){
+                    [self.delegate loginFail:PASS_WORD_ERROR];
+                }
+                else if (ret == 1004){
+                    [self.delegate loginFail:PASS_WORD_TOO_LONG];
+                }
+                else if (ret == 1005){
+                    [self.delegate loginFail:SAFE_PASS_EXIST];
+                }
+                else if (ret == 1006){
+                    [self.delegate loginFail:SAFE_PASS_NOT_EXIST];
+                }
+                else if (ret == 1007){
+                    [self.delegate loginFail:SAFE_PASS_ERROR];
+                }
+                else if (ret == 1008){
+                    [self.delegate loginFail:USER_INFO_PHON_EXIST];
+                }
+                else if (ret == 2001){
+                    [self.delegate loginFail:LOGIN_CHECK_ERROR];
+                }
+                else if (ret == 3001){
+                    [self.delegate loginFail:SEND_CODE_TIME_ERROR];
+                }
+                else if (ret == 3002){
+                    [self.delegate loginFail:SEND_CODE_ERROR];
+                }
+
                 else{
-                    NSString *msg = [dic objectForKey:@"msg"];
+                    NSString *msg = [NSString stringWithFormat:@"%@,recode=%i",[dic objectForKey:@"msg"],ret];
                     [self.delegate loginFail:msg];return;
                 }
             }
@@ -330,8 +517,51 @@
                     //调用登陆
                     [self Login:account Password:newPassword isNewAccount:NO];
                 }
+                else if (ret == 3){
+                    [self.delegate loginFail:PARAM_FAIL];
+                }
+                else if (ret == 10){
+                    [self.delegate loginFail:NO_CHANGE];
+                }
+                else if (ret == 1000){
+                    [self.delegate loginFail:USERR_NAME_DUPLICATE];
+                }
+                else if (ret == 1001){
+                    [self.delegate loginFail:USERR_NAME_CREAT_FAIL];
+                }
+                else if (ret == 1002){
+                    [self.delegate loginFail:USERR_NAME_NOT_EXIST];
+                }
+                else if (ret == 1003){
+                    [self.delegate loginFail:PASS_WORD_ERROR];
+                }
+                else if (ret == 1004){
+                    [self.delegate loginFail:PASS_WORD_TOO_LONG];
+                }
+                else if (ret == 1005){
+                    [self.delegate loginFail:SAFE_PASS_EXIST];
+                }
+                else if (ret == 1006){
+                    [self.delegate loginFail:SAFE_PASS_NOT_EXIST];
+                }
+                else if (ret == 1007){
+                    [self.delegate loginFail:SAFE_PASS_ERROR];
+                }
+                else if (ret == 1008){
+                    [self.delegate loginFail:USER_INFO_PHON_EXIST];
+                }
+                else if (ret == 2001){
+                    [self.delegate loginFail:LOGIN_CHECK_ERROR];
+                }
+                else if (ret == 3001){
+                    [self.delegate loginFail:SEND_CODE_TIME_ERROR];
+                }
+                else if (ret == 3002){
+                    [self.delegate loginFail:SEND_CODE_ERROR];
+                }
+
                 else{
-                    NSString *msg = [dic objectForKey:@"msg"];
+                    NSString *msg = [NSString stringWithFormat:@"%@,recode=%i",[dic objectForKey:@"msg"],ret];
                     [self.delegate loginFail:msg];return;
                 }
             }
