@@ -225,6 +225,7 @@ static duole_iap* duole_iap_share;
     if(message.length == 0)return;
     if([UIApplication sharedApplication].keyWindow==NULL)return;
     
+
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
         
@@ -236,27 +237,29 @@ static duole_iap* duole_iap_share;
         [hud hideAnimated:YES afterDelay:3.f];
     }];
 
+
 }
 
 //显示loading
 -(void)showHub{
     [self hideHub];
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         _hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
         _hud.bezelView.backgroundColor = ColorRGBA(0, 0, 0, 0.4);
         _hud.label.text = @"Loading...";
         _hud.label.textColor = [UIColor whiteColor];
-    }];
+//    }];
 
 }
 
 //隐藏loading
 -(void)hideHub{
     if (_hud) {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-               [_hud hideAnimated:YES];
-        }];
-        _hud = nil;
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [_hud hideAnimated:YES];
+            _hud = nil;
+//        }];
+        
     }
 }
 
