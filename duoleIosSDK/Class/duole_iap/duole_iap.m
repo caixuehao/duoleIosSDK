@@ -34,8 +34,10 @@ static duole_iap* duole_iap_share;
     MBProgressHUD *_hud;//load....
 }
 +(instancetype)share{
-    if (duole_iap_share == NULL) {
-        duole_iap_share = [[duole_iap alloc] init];
+    @synchronized (self) {
+        if (duole_iap_share == NULL) {
+            duole_iap_share = [[duole_iap alloc] init];
+        }
     }
     return duole_iap_share;
 }
@@ -87,7 +89,7 @@ static duole_iap* duole_iap_share;
         }];//发送收据
     }
     
-    
+    NSLog(@"请求商品:%@",ProductList);
     //请求商品
     [[RMStore defaultStore] requestProducts:[NSSet setWithArray:[ProductList allValues]] success:nil failure:nil];
  
@@ -239,16 +241,21 @@ static duole_iap* duole_iap_share;
 //显示loading
 -(void)showHub{
     [self hideHub];
-    _hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-    _hud.bezelView.backgroundColor = ColorRGBA(0, 0, 0, 0.4);
-    _hud.label.text = @"Loading...";
-    _hud.label.textColor = [UIColor whiteColor];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        _hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+        _hud.bezelView.backgroundColor = ColorRGBA(0, 0, 0, 0.4);
+        _hud.label.text = @"Loading...";
+        _hud.label.textColor = [UIColor whiteColor];
+    }];
+
 }
 
 //隐藏loading
 -(void)hideHub{
     if (_hud) {
-        [_hud hideAnimated:YES];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+               [_hud hideAnimated:YES];
+        }];
         _hud = nil;
     }
 }

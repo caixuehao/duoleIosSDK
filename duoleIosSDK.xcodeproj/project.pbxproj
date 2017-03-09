@@ -175,7 +175,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7C14BF491E543642005E0245 /* FJThirdPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FJThirdPay.h; path = duoleIosSDK/Class/duole_iap/FJThirdPay.h; sourceTree = "<group>"; };
 		7C3FFDCB1E5AD8630022A714 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
 		7C3FFDCC1E5AD8630022A714 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
 		7C5D57901E4C564D00BFCBE5 /* FJFateLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJFateLoginRequest.h; sourceTree = "<group>"; };
@@ -396,7 +395,6 @@
 		FC4705591D4713D0009F0B62 = {
 			isa = PBXGroup;
 			children = (
-				7C14BF491E543642005E0245 /* FJThirdPay.h */,
 				FC4705651D4713D0009F0B62 /* duoleIosSDK */,
 				FC4705711D4713D0009F0B62 /* duoleIosSDKTests */,
 				FC4705641D4713D0009F0B62 /* Products */,
