@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C3FFDCD1E5AD8630022A714 /* UIAlertView+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C3FFDCB1E5AD8630022A714 /* UIAlertView+Block.h */; };
-		7C3FFDCE1E5AD8630022A714 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3FFDCC1E5AD8630022A714 /* UIAlertView+Block.m */; };
 		7C5D57921E4C564D00BFCBE5 /* FJFateLoginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C5D57901E4C564D00BFCBE5 /* FJFateLoginRequest.h */; };
 		7C5D57931E4C564D00BFCBE5 /* FJFateLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D57911E4C564D00BFCBE5 /* FJFateLoginRequest.m */; };
 		7C6A2BCB1E5186E7005D6489 /* FJThirdPay.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6A2BC91E5186E7005D6489 /* FJThirdPay.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,6 +40,10 @@
 		FC4705DC1D473B7D009F0B62 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4705DA1D473B7D009F0B62 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC4705E81D475EF3009F0B62 /* CAIanimations.h in Headers */ = {isa = PBXBuildFile; fileRef = FC4705E61D475EF3009F0B62 /* CAIanimations.h */; };
 		FC4705E91D475EF3009F0B62 /* CAIanimations.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4705E71D475EF3009F0B62 /* CAIanimations.m */; };
+		FC47BE8E1EB81E6C00E893E8 /* UIAlertView+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = FC47BE8C1EB81E6C00E893E8 /* UIAlertView+Block.h */; };
+		FC47BE8F1EB81E6C00E893E8 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = FC47BE8D1EB81E6C00E893E8 /* UIAlertView+Block.m */; };
+		FC47BE931EB81F6100E893E8 /* IDCardVerification.h in Headers */ = {isa = PBXBuildFile; fileRef = FC47BE911EB81F6100E893E8 /* IDCardVerification.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC47BE941EB81F6100E893E8 /* IDCardVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = FC47BE921EB81F6100E893E8 /* IDCardVerification.m */; };
 		FC67EBC51D56473900F22001 /* duole_iap.md in Sources */ = {isa = PBXBuildFile; fileRef = FC67EBC41D56473900F22001 /* duole_iap.md */; };
 		FC67EC2B1D564F2A00F22001 /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = FC67EBCA1D564F2A00F22001 /* AppleIncRootCertificate.cer */; };
 		FC67EC2C1D564F2A00F22001 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FC67EBCD1D564F2A00F22001 /* LICENSE */; };
@@ -175,8 +177,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7C3FFDCB1E5AD8630022A714 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
-		7C3FFDCC1E5AD8630022A714 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
 		7C5D57901E4C564D00BFCBE5 /* FJFateLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJFateLoginRequest.h; sourceTree = "<group>"; };
 		7C5D57911E4C564D00BFCBE5 /* FJFateLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJFateLoginRequest.m; sourceTree = "<group>"; };
 		7C6A2BC91E5186E7005D6489 /* FJThirdPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJThirdPay.h; sourceTree = "<group>"; };
@@ -212,6 +212,10 @@
 		FC4705DA1D473B7D009F0B62 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		FC4705E61D475EF3009F0B62 /* CAIanimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAIanimations.h; sourceTree = "<group>"; };
 		FC4705E71D475EF3009F0B62 /* CAIanimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAIanimations.m; sourceTree = "<group>"; };
+		FC47BE8C1EB81E6C00E893E8 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
+		FC47BE8D1EB81E6C00E893E8 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		FC47BE911EB81F6100E893E8 /* IDCardVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardVerification.h; sourceTree = "<group>"; };
+		FC47BE921EB81F6100E893E8 /* IDCardVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardVerification.m; sourceTree = "<group>"; };
 		FC67EBC41D56473900F22001 /* duole_iap.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = duole_iap.md; sourceTree = "<group>"; };
 		FC67EBCA1D564F2A00F22001 /* AppleIncRootCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate.cer; sourceTree = "<group>"; };
 		FC67EBCD1D564F2A00F22001 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -355,16 +359,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7C3FFDCA1E5AD8630022A714 /* UIAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				7C3FFDCB1E5AD8630022A714 /* UIAlertView+Block.h */,
-				7C3FFDCC1E5AD8630022A714 /* UIAlertView+Block.m */,
-			);
-			name = UIAlertView;
-			path = Category/UIAlertView;
-			sourceTree = "<group>";
-		};
 		FC2DF7EC1D48BDE2005160BD /* JCAlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,13 +427,14 @@
 		FC47057D1D4713E2009F0B62 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				7C3FFDCA1E5AD8630022A714 /* UIAlertView */,
+				FC47BE8A1EB81E6C00E893E8 /* Category */,
 				FC4705811D4713E2009F0B62 /* Macro */,
 				FC4705CB1D47379A009F0B62 /* duole_login */,
 				FCA29FDF1D5435C7000AF3C3 /* duole_iap */,
 				FCA29FEC1D5435C7000AF3C3 /* duole_log */,
 				FC749C921D6444C500993327 /* playerVideo */,
 				FCDBC0DB1D50772E007CA845 /* localNotification */,
+				FC47BE901EB81F2300E893E8 /* IDCardVerification */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -541,6 +536,32 @@
 				FC4705E71D475EF3009F0B62 /* CAIanimations.m */,
 			);
 			path = CAIanimations;
+			sourceTree = "<group>";
+		};
+		FC47BE8A1EB81E6C00E893E8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FC47BE8B1EB81E6C00E893E8 /* UIAlertView */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FC47BE8B1EB81E6C00E893E8 /* UIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				FC47BE8C1EB81E6C00E893E8 /* UIAlertView+Block.h */,
+				FC47BE8D1EB81E6C00E893E8 /* UIAlertView+Block.m */,
+			);
+			path = UIAlertView;
+			sourceTree = "<group>";
+		};
+		FC47BE901EB81F2300E893E8 /* IDCardVerification */ = {
+			isa = PBXGroup;
+			children = (
+				FC47BE911EB81F6100E893E8 /* IDCardVerification.h */,
+				FC47BE921EB81F6100E893E8 /* IDCardVerification.m */,
+			);
+			path = IDCardVerification;
 			sourceTree = "<group>";
 		};
 		FC67EBC81D564F2A00F22001 /* RMStore */ = {
@@ -800,6 +821,7 @@
 				FCA29FFF1D5435C7000AF3C3 /* duole_log.h in Headers */,
 				FCA29FF51D5435C7000AF3C3 /* duole_iap.h in Headers */,
 				7C6A2BCB1E5186E7005D6489 /* FJThirdPay.h in Headers */,
+				FC47BE931EB81F6100E893E8 /* IDCardVerification.h in Headers */,
 				FC67EC2E1D564F2A00F22001 /* asn1.h in Headers */,
 				FC67EC801D564F2A00F22001 /* RMStoreTransaction.h in Headers */,
 				FC67EC681D564F2A00F22001 /* srtp.h in Headers */,
@@ -824,6 +846,7 @@
 				FC4705671D4713D0009F0B62 /* duoleIosSDK.h in Headers */,
 				FC2DF7E11D4861D5005160BD /* XJLLoginRequest.h in Headers */,
 				FC67EC6E1D564F2A00F22001 /* symhacks.h in Headers */,
+				FC47BE8E1EB81E6C00E893E8 /* UIAlertView+Block.h in Headers */,
 				FC67EC841D564F2A00F22001 /* RMStoreUserDefaultsPersistence.h in Headers */,
 				FC67EC6C1D564F2A00F22001 /* ssl3.h in Headers */,
 				FC67EC511D564F2A00F22001 /* md5.h in Headers */,
@@ -841,7 +864,6 @@
 				FC67EC631D564F2A00F22001 /* rsa.h in Headers */,
 				FC2DF7DC1D484F06005160BD /* loginRequest.h in Headers */,
 				FC67EC411D564F2A00F22001 /* dso.h in Headers */,
-				7C3FFDCD1E5AD8630022A714 /* UIAlertView+Block.h in Headers */,
 				FC67EC3A1D564F2A00F22001 /* conf.h in Headers */,
 				FC67EC3F1D564F2A00F22001 /* dh.h in Headers */,
 				FC67EC7A1D564F2A00F22001 /* RMAppReceipt.h in Headers */,
@@ -1036,12 +1058,13 @@
 				FC2DF7F21D48BDE2005160BD /* JCAlertView.m in Sources */,
 				FC67EC7D1D564F2A00F22001 /* RMStoreAppReceiptVerifier.m in Sources */,
 				FCA2A0001D5435C7000AF3C3 /* duole_log.m in Sources */,
+				FC47BE8F1EB81E6C00E893E8 /* UIAlertView+Block.m in Sources */,
 				7C6A2BCC1E5186E7005D6489 /* FJThirdPay.m in Sources */,
 				FCCA4C871D4F366D00E8ACE8 /* moreFunctionVC.m in Sources */,
 				FC67EC871D564F2A00F22001 /* RMStore.m in Sources */,
-				7C3FFDCE1E5AD8630022A714 /* UIAlertView+Block.m in Sources */,
 				FC2DF7F71D48BFE9005160BD /* UIComboBox.m in Sources */,
 				FC67EC7F1D564F2A00F22001 /* RMStoreKeychainPersistence.m in Sources */,
+				FC47BE941EB81F6100E893E8 /* IDCardVerification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1173,7 +1196,7 @@
 					"$(PROJECT_DIR)/duoleIosSDK/Librarys/RMStore/Optional/openssl-1.0.1e/lib",
 				);
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.duole.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mg.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1197,7 +1220,7 @@
 					"$(PROJECT_DIR)/duoleIosSDK/Librarys/RMStore/Optional/openssl-1.0.1e/lib",
 				);
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.duole.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mg.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
