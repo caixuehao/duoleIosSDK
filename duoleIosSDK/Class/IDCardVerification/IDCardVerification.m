@@ -75,16 +75,67 @@ static IDCardVerification *IDCardVerificationShare;
   
 }
 
+
 -(void)verification{
     tipLabel.text = @"";
     if ([self validateIDCardNumber:idcardTF.text]) {
         //验证成功
         NSLog(@"success");
+        if ([self isAdult]) {
+            NSLog(@"成人");
+        }else{
+            NSLog(@"未成年");
+        }
     }else{
         NSLog(@"error");
          if(tipLabel.text.length == 0)tipLabel.text = @"身份证填写不正确，请检查。";
     }
 }
+-(BOOL)isAdult{
+    NSCalendar * cal=[NSCalendar currentCalendar];
+    NSUInteger unitFlags=NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit;
+    NSDateComponents * conponent= [cal components:unitFlags fromDate:[NSDate date]];
+    NSInteger nowyear=[conponent year];
+    NSInteger nowmonth=[conponent month];
+    NSInteger nowday=[conponent day];
+    
+    
+    NSInteger useryear;
+    NSInteger usermonth;
+    NSInteger userday;
+    if (idcardTF.text.length == 15) {
+        useryear = [[NSString stringWithFormat:@"19%@",[idcardTF.text substringWithRange:NSMakeRange(6, 2)]] integerValue];
+        usermonth = [[idcardTF.text substringWithRange:NSMakeRange(8, 2)] integerValue];
+        userday = [[idcardTF.text substringWithRange:NSMakeRange(10,2)] integerValue];
+    }else{
+        useryear = [[idcardTF.text substringWithRange:NSMakeRange(6, 4)] integerValue];
+        usermonth = [[idcardTF.text substringWithRange:NSMakeRange(10, 2)] integerValue];
+        userday = [[idcardTF.text substringWithRange:NSMakeRange(12,2)] integerValue];
+    }
+    
+    
+    if ((nowyear - useryear)>18) {
+        return YES;
+    }else if((nowyear - useryear)<18){
+        return NO;
+    }else{
+        if(nowmonth>useryear){
+            return YES;
+        }else if(useryear>nowmonth){
+            return NO;
+        }else{
+            if (nowday>=userday) {
+                return YES;
+            }else{
+                return NO;
+            }
+        }
+    }
+    
+    return NO;
+}
+
+
 
 - (BOOL)validateIDCardNumber:(NSString *)value
 {
