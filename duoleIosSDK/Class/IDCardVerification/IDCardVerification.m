@@ -7,6 +7,10 @@
 //
 
 #import "IDCardVerification.h"
+@interface IDCardVerification()<UITextFieldDelegate>
+
+@end
+
 static IDCardVerification *IDCardVerificationShare;
 @implementation IDCardVerification{
     UIView* mainView;
@@ -42,14 +46,16 @@ static IDCardVerification *IDCardVerificationShare;
 
     UIButton* backBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 80, 30)];
     [backBtn setTitle:@"退出" forState:UIControlStateNormal];
-    [backBtn setBackgroundColor:[UIColor yellowColor]];
+    [backBtn setBackgroundColor:[UIColor grayColor]];
     [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchDown];
     [mainView addSubview:backBtn];
     
     idcardTF = [[UITextField alloc] initWithFrame:CGRectMake(10, 50, mainView.bounds.size.width -20, 50)];
-    idcardTF.backgroundColor = [[UIColor alloc] initWithRed:150/255.0 green:150/255.0 blue:150/255.0 alpha:1];
+    idcardTF.backgroundColor = [[UIColor alloc] initWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1];
     [idcardTF.layer setCornerRadius:5.0];//圆角大小
+    idcardTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;   //设置键盘的样式
     idcardTF.returnKeyType = UIReturnKeyGo;
+    [idcardTF setDelegate:self];
     [mainView addSubview:idcardTF];
     
     tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 105, mainView.bounds.size.width -20, 20)];
@@ -59,23 +65,63 @@ static IDCardVerification *IDCardVerificationShare;
     
     UIButton* okbtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 130, mainView.bounds.size.width -20, 40)];
     [okbtn setTitle:@"验证" forState:UIControlStateNormal];
-    [okbtn setBackgroundColor:[UIColor yellowColor]];
+    [okbtn setBackgroundColor:[UIColor grayColor]];
     [okbtn addTarget:self action:@selector(verification) forControlEvents:UIControlEventTouchDown];
     [mainView addSubview:okbtn];
     
+    [mainView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickMainView)]];
+    [idcardTF addTarget:self action:@selector(textFieldDidEndEditing:) forControlEvents:UIControlEventEditingChanged];
 }
 
 
 #pragma action
+//限制字数
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    NSLog(@"%@",textField.text);
+    if (textField.text.length > 18) {
+        textField.text = [textField.text substringToIndex:18];
+    }
+}
+//限制输入字符
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    return [self validateNumber:string];
+}
+
+- (BOOL)validateNumber:(NSString*)number {
+    BOOL res = YES;
+    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789xX"];
+    int i = 0;
+    while (i < number.length) {
+        NSString * string = [number substringWithRange:NSMakeRange(i, 1)];
+        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
+        if (range.length == 0) {
+            res = NO;
+            break;
+        }
+        i++;
+    }
+    return res;
+}
+
+
+//键盘return键
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    [self verification];
+    return YES;
+}
+//关闭键盘
+-(void)onClickMainView{
+    [idcardTF resignFirstResponder];
+}
+//退出
 -(void)back{
     [mainView removeFromSuperview];
     tipLabel = NULL;
     idcardTF = NULL;
     mainView = NULL;
-  
 }
-
-
+//验证
 -(void)verification{
     tipLabel.text = @"";
     if ([self validateIDCardNumber:idcardTF.text]) {
@@ -91,6 +137,7 @@ static IDCardVerification *IDCardVerificationShare;
          if(tipLabel.text.length == 0)tipLabel.text = @"身份证填写不正确，请检查。";
     }
 }
+//other
 -(BOOL)isAdult{
     NSCalendar * cal=[NSCalendar currentCalendar];
     NSUInteger unitFlags=NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit;
